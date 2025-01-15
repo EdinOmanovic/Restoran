@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodApp.Pages.login"
+             Title="login"
+             BackgroundImageSource="restoran.jpb"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- slikica iznad forme -->
+            <Image Source="fastfood.png" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" 
+               HeightRequest="100" />
+            <!-- Podesi visinu slike po želji -->
+
+            <!-- okvir sa naslovom Login stranice -->
+            <Frame BackgroundColor="#E7C0C1"
+       CornerRadius="25"
+       Padding="10"
+       HasShadow="False"
+       HeightRequest="70" 
+                HorizontalOptions="FillAndExpand"
+       VerticalOptions="Start">
+                <VerticalStackLayout>
+
+                    <Label Text="Prijavi se"
+               FontSize="30"
+                           BackgroundColor="#E7C0C1"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" 
+                        Margin="-10,5,0,0"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- username -->
+            <Frame BackgroundColor="#E0E0E0"  
+                CornerRadius="25"
+       Padding="0"
+       HeightRequest="50"
+       Margin="0,10">
+                <Entry Placeholder="Korisničko ime"
+           FontSize="16"
+           TextColor="#000000"
+           BackgroundColor="Transparent"  
+                    PlaceholderColor="#A0A0A0"
+           HorizontalOptions="FillAndExpand"
+           HeightRequest="50"/>
+            </Frame>
+
+            <!-- pass -->
+            <Frame BackgroundColor="#E0E0E0"  
+                CornerRadius="25"
+       Padding="0"
+       HeightRequest="50"
+       Margin="0,10">
+                <Entry Placeholder="Lozinka"
+           FontSize="16"
+           TextColor="#000000"
+           BackgroundColor="Transparent"  
+                    IsPassword="True"
+           PlaceholderColor="#A0A0A0"
+           HorizontalOptions="FillAndExpand"
+           HeightRequest="50"/>
+            </Frame>
+            <!-- registruj se -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Label Text="Ako nemas profil, " 
+           FontSize="14" 
+           TextColor="Black" />
+                <Label Text="REGISTRUJ SE" 
+           FontSize="14" 
+           TextColor="DimGrey" 
+           FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+            <!-- Dugme za prijavu -->
+            <Button Text="Prijavi se"
+                FontSize="16"
+                BackgroundColor="#D18588"
+                TextColor="White"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand"
+                Margin="0,20"
+                Clicked="Button_Clicked"/>
+
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
