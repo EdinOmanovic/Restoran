@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="app.HomePageWithCRUD"
+             Title="ADMIN"
+             BackgroundImageSource="back.jpg"
+             Padding="0">
+    <StackLayout Padding="20">
+        <Entry x:Name="ItemNameEntry" Placeholder="Item Name" />
+        <Entry x:Name="ItemDescriptionEntry" Placeholder="Item Description" />
+        <Entry x:Name="ItemPriceEntry" Placeholder="Price" Keyboard="Numeric" />
+        <Entry x:Name="ItemImageUrlEntry" Placeholder="Image URL" />
+        <Entry x:Name="ItemCategoryEntry" Placeholder="Category" />
+        <!-- Novo polje za kategoriju -->
+
+        <Button Text="Add/Update Item" Clicked="AddOrUpdateItemButton_Clicked" BackgroundColor="#D18588" />
+
+        <ListView x:Name="ItemsListView" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
+                                <Image Source="{Binding ImageUrl}" HeightRequest="60" WidthRequest="60" />
+                                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Padding="5">
+                                    <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding Description}" FontSize="12" LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding Price, StringFormat='{0:C}'}" FontSize="14" VerticalOptions="End" />
+                                    <Label Text="{Binding Category}" FontSize="12" />
+                                    <!-- Prikaz kategorije -->
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" HorizontalOptions="End" Padding="5">
+                                <Button Text="Update" FontSize="12" CommandParameter="{Binding .}" Clicked="UpdateItemButton_Clicked" BackgroundColor="#D18588" />
+                                <Button Text="Delete" FontSize="12" CommandParameter="{Binding Id}" Clicked="DeleteItemButton_Clicked" BackgroundColor="#D18588" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

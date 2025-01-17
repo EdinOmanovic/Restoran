@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="app.RegisterPage"
+             Title="RegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="register.jpg"
+             Padding="0">
+    <ContentPage.Content>
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Slika iznad forme -->
+        <Image Source="fastfood.png" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" 
+               HeightRequest="100" />
+
+        <!-- Gornji okvir sa naslovom reg -->
+        <Frame BackgroundColor="#E7C0C1"
+               CornerRadius="25"
+               Padding="10"
+               HasShadow="False"
+               HeightRequest="70" 
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Start">
+    <VerticalStackLayout>
+        <Label Text="Registruj se"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       VerticalOptions="CenterAndExpand"
+                       Margin="-10,5,0,0"/>
+    </VerticalStackLayout>
+    </Frame>
+
+    <!-- User name -->
+    <Frame BackgroundColor="#E0E0E0"
+               CornerRadius="25"
+               Padding="0"
+               HeightRequest="50"
+               Margin="0,10">
+        <Entry x:Name="UsernameEntry"
+                   Placeholder="Korisničko ime"
+                   FontSize="16"
+                   TextColor="#000000"
+                   BackgroundColor="White"
+                   PlaceholderColor="#A0A0A0"
+                   HorizontalOptions="FillAndExpand"
+                   HeightRequest="50"/>
+    </Frame>
+
+    <!-- Password -->
+    <Frame BackgroundColor="#E0E0E0"
+               CornerRadius="25"
+               Padding="0"
+               HeightRequest="50"
+               Margin="0,10">
+        <Entry x:Name="PasswordEntry"
+                   Placeholder="Lozinka"
+                   FontSize="16"
+                   TextColor="#000000"
+                   BackgroundColor="White"
+                   IsPassword="True"
+                   PlaceholderColor="#A0A0A0"
+                   HorizontalOptions="FillAndExpand"
+                   HeightRequest="50"/>
+    </Frame>
+
+    <!-- Potvrda passworda -->
+    <Frame BackgroundColor="#E0E0E0"
+               CornerRadius="25"
+               Padding="0"
+               HeightRequest="50"
+               Margin="0,10">
+        <Entry x:Name="ConfirmPasswordEntry"
+                   Placeholder="Potvrdi lozinku"
+                   FontSize="16"
+                   TextColor="#000000"
+                   BackgroundColor="White"
+                   IsPassword="True"
+                   PlaceholderColor="#A0A0A0"
+                   HorizontalOptions="FillAndExpand"
+                   HeightRequest="50"/>
+    </Frame>
+
+    <!-- Poruka za errore -->
+    <Label x:Name="ErrorLabel"
+               TextColor="Red"
+               FontSize="14"
+               IsVisible="False"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+
+    <!-- Dugme za registraciju -->
+    <Button Text="Registruj se"
+                FontSize="16"
+                BackgroundColor="#D18588"
+                TextColor="White"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand"
+                Margin="0,20"
+                Clicked="OnRegisterButtonClicked"/>
+
+           <!--  Dugme za prikaz korisnika  -->
+            <Button Text="Prikaz korisnika"
+                FontSize="16"
+                BackgroundColor="#D18588"
+                TextColor="White"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand"
+                Margin="0,20"
+                Clicked="OnShowUsersButtonClicked"/>
+
+            
+            <ListView x:Name="UsersListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Username}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
