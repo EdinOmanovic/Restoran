@@ -7,91 +7,93 @@
              Padding="0"
              NavigationPage.HasNavigationBar="False">
 
-
     <ContentPage.Content>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            <!-- treba nas logo -->
-            <Image Source="logo.png" 
-               HorizontalOptions="Center" 
-               VerticalOptions="Center" 
-               HeightRequest="100" />
-           
-
+        <Grid Padding="20" VerticalOptions="End" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*">
+            <!-- Logo -->
             
-            <Frame BackgroundColor="DarkOliveGreen"
-               CornerRadius="25"
-               Padding="10"
-               HasShadow="False"
-               HeightRequest="70" 
-               HorizontalOptions="FillAndExpand"
-               VerticalOptions="Start">
+
+            <!-- Title Frame -->
+            <Frame Grid.Row="1"
+                   BackgroundColor="DarkOliveGreen"
+                   CornerRadius="25"
+                   Padding="10"
+                   HasShadow="False"
+                   HeightRequest="70" 
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Start">
                 <VerticalStackLayout>
                     <Label Text="Prijavi se"
-                       FontSize="30"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       VerticalOptions="CenterAndExpand" 
-                       Margin="-10,5,0,0"/>
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="CenterAndExpand" 
+                           Margin="-10,5,0,0"/>
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- username -->
-            <Frame BackgroundColor="#E0E0E0"  
-               CornerRadius="25"
-               Padding="0"
-               HeightRequest="50"
-               Margin="0,10">
+            <!-- Username Entry -->
+            <Frame Grid.Row="2"
+                   BackgroundColor="#E0E0E0"  
+                   CornerRadius="25"
+                   Padding="0"
+                   HeightRequest="50"
+                   Margin="0,10">
                 <Entry x:Name="UsernameEntry"
-                   Placeholder="Korisničko ime"
-                   FontSize="16"
-                   TextColor="#000000"
-                   BackgroundColor="White"  
-                   PlaceholderColor="#A0A0A0"
-                   HorizontalOptions="FillAndExpand"
-                   HeightRequest="50"/>
+                       Placeholder="Korisničko ime"
+                       FontSize="16"
+                       TextColor="#000000"
+                       BackgroundColor="White"  
+                       PlaceholderColor="#A0A0A0"
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="50"/>
             </Frame>
 
-            <!-- pass -->
-            <Frame BackgroundColor="#E0E0E0"  
-               CornerRadius="25"
-               Padding="0"
-               HeightRequest="50"
-               Margin="0,10">
+            <!-- Password Entry -->
+            <Frame Grid.Row="3"
+                   BackgroundColor="#E0E0E0"  
+                   CornerRadius="25"
+                   Padding="0"
+                   HeightRequest="50"
+                   Margin="0,10">
                 <Entry x:Name="PasswordEntry"
-                   Placeholder="Lozinka"
-                   FontSize="16"
-                   TextColor="#000000"
-                   BackgroundColor="white"  
-                   IsPassword="True"
-                   PlaceholderColor="#A0A0A0"
-                   HorizontalOptions="FillAndExpand"
-                   HeightRequest="50"/>
+                       Placeholder="Lozinka"
+                       FontSize="16"
+                       TextColor="#000000"
+                       BackgroundColor="white"  
+                       IsPassword="True"
+                       PlaceholderColor="#A0A0A0"
+                       HorizontalOptions="FillAndExpand"
+                       HeightRequest="50"/>
             </Frame>
 
-            <!-- reg -->
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+            <!-- Registration Link -->
+            <HorizontalStackLayout Grid.Row="4" HorizontalOptions="Center" Spacing="5">
                 <Label Text="Ako nemas profil, " 
-                   FontSize="14" 
-                   TextColor="Black" />
+                       FontSize="14" 
+                       TextColor="Black" />
                 <Label Text="REGISTRUJ SE" 
-                   FontSize="14" 
-                   TextColor="DimGrey" 
-                   FontAttributes="Bold">
+                       FontSize="14" 
+                       TextColor="DimGrey" 
+                       FontAttributes="Bold">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnRegisterTapped" />
                     </Label.GestureRecognizers>
                 </Label>
             </HorizontalStackLayout>
 
-            <!-- prijavi se -->
-            <Button Text="Prijavi se"
-                FontSize="16"
-                BackgroundColor="DarkOliveGreen"
-                TextColor="White"
-                HeightRequest="50"
-                HorizontalOptions="FillAndExpand"
-                Margin="0,20"
-                Clicked="Button_Clicked"/>
-        </VerticalStackLayout>
+            <!-- Spacer to push the button to the bottom -->
+            <BoxView Grid.Row="5" HeightRequest="0" />
+
+            <!-- Login Button -->
+            <Button Grid.Row="6"
+                    Text="Prijavi se"
+                    FontSize="16"
+                    BackgroundColor="DarkOliveGreen"
+                    TextColor="White"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="0,20"
+                    Clicked="Button_Clicked"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

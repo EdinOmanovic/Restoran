@@ -4,7 +4,8 @@
              x:Class="app.HomePageReadOnly"
              Title="USER"
              BackgroundImageSource="back.jpg"
-             Padding="0">
+             Padding="0"
+             x:Name="MainPage">
     <CollectionView ItemsSource="{Binding Tables}" SelectionMode="None">
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" Span="2" />
@@ -18,8 +19,12 @@
                         <Label Text="{Binding Status}" FontSize="14" HorizontalOptions="Center" TextColor="{Binding StatusColor}" />
                         <Button Text="Naruci" 
                                 IsVisible="{Binding IsAvailable}" 
-                                Command="{Binding BindingContext.OrderCommand, Source={x:Reference Name=MainPage}}" 
-                                CommandParameter="{Binding .}" />
+                                Command="{Binding Source={x:Reference MainPage}, Path=OrderCommand}"
+                                CommandParameter="{Binding .}"
+                                BackgroundColor="#D18588"
+                                TextColor="White"
+                                CornerRadius="5"
+                                Margin="0,5,0,0"/>
                     </StackLayout>
                 </Frame>
             </DataTemplate>

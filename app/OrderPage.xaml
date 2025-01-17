@@ -1,12 +1,145 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="app.NewPage1"
-             Title="NewPage1">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="app.OrderPage"
+             Title="Order Details"
+             BackgroundImageSource="back.jpg">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        <!-- Header Section -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="#D18588" 
+               Padding="20" 
+               Margin="0,0,0,20"
+               CornerRadius="15">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Table Order" 
+                       FontSize="28" 
+                       FontAttributes="Bold" 
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="TableNumberLabel" 
+                       FontSize="22" 
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                <Label Text="Create Your Order"
+                       FontSize="16"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="15">
+                <!-- Menu Items Section -->
+                <Frame BackgroundColor="White" 
+                       Padding="20" 
+                       Margin="0,10"
+                       CornerRadius="15"
+                       BorderColor="#D18588">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Add Menu Items" 
+                               FontSize="20" 
+                               FontAttributes="Bold"
+                               TextColor="#D18588"/>
+
+                        <Frame Padding="15" 
+                               BorderColor="#D18588" 
+                               CornerRadius="10">
+                            <Picker x:Name="MenuItemPicker" 
+                                    Title="Select Menu Item"
+                                    TextColor="#333333"/>
+                        </Frame>
+
+                        <Frame Padding="15" 
+                               BorderColor="#D18588" 
+                               CornerRadius="10">
+                            <Entry x:Name="QuantityEntry" 
+                                   Placeholder="Enter Quantity" 
+                                   Keyboard="Numeric"
+                                   TextColor="#333333"/>
+                        </Frame>
+
+                        <Button Text="Add to Order" 
+                                Clicked="OnAddToOrderClicked"
+                                BackgroundColor="#D18588"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                CornerRadius="25"
+                                HeightRequest="50"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Current Order Section -->
+                <Frame BackgroundColor="White" 
+                       Padding="20"
+                       CornerRadius="15"
+                       BorderColor="#D18588">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Current Order" 
+                               FontSize="20" 
+                               FontAttributes="Bold"
+                               TextColor="#D18588"/>
+
+                        <Frame BorderColor="#D18588" 
+                               CornerRadius="10"
+                               Padding="10">
+                            <ListView x:Name="OrderItemsListView" 
+                                     HeightRequest="250"
+                                     SelectionMode="None">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Grid Padding="10" 
+                                                  ColumnDefinitions="*, Auto, Auto, Auto" 
+                                                  ColumnSpacing="10">
+                                                <Label Text="{Binding ItemName}" 
+                                                       Grid.Column="0"
+                                                       VerticalOptions="Center"/>
+                                                <Label Text="x" 
+                                                       Grid.Column="1"
+                                                       VerticalOptions="Center"/>
+                                                <Label Text="{Binding Quantity}" 
+                                                       Grid.Column="2"
+                                                       VerticalOptions="Center"/>
+                                                <Button Text="Remove" 
+                                                        Grid.Column="3"
+                                                        BackgroundColor="#D18588"
+                                                        TextColor="White"
+                                                        CommandParameter="{Binding .}"
+                                                        Clicked="OnRemoveItemClicked"
+                                                        HeightRequest="35"
+                                                        CornerRadius="17"
+                                                        FontSize="12"/>
+                                            </Grid>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Frame>
+
+                        <Frame BorderColor="#D18588" 
+                               CornerRadius="10"
+                               Padding="15"
+                               HorizontalOptions="End">
+                            <Label x:Name="TotalLabel" 
+                                   FontSize="20" 
+                                   FontAttributes="Bold" 
+                                   TextColor="#D18588"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Complete Order Button -->
+        <Button Grid.Row="2" 
+                Text="Complete Order" 
+                Clicked="OnCompleteOrderClicked"
+                BackgroundColor="#D18588"
+                TextColor="White"
+                FontAttributes="Bold"
+                HeightRequest="60"
+                CornerRadius="30"
+                Margin="0,20,0,0"/>
+    </Grid>
 </ContentPage>

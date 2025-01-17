@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vedad\\Restoran\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\vedad\\restoran\\app\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\vedad\\restoran\\app\\orderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\vedad\\restoran\\app\\homepagereadonly.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagereadonly.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\vedad\\restoran\\app\\homepagereadonly.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagereadonly.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\vedad\\restoran\\app\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\vedad\\restoran\\app\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomePageReadOnly.xaml",
+              "DocumentMoniker": "C:\\Users\\vedad\\Restoran\\app\\HomePageReadOnly.xaml",
+              "RelativeDocumentMoniker": "app\\HomePageReadOnly.xaml",
+              "ToolTip": "C:\\Users\\vedad\\Restoran\\app\\HomePageReadOnly.xaml",
+              "RelativeToolTip": "app\\HomePageReadOnly.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-17T21:49:36.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderPage.xaml",
+              "DocumentMoniker": "C:\\Users\\vedad\\Restoran\\app\\OrderPage.xaml",
+              "RelativeDocumentMoniker": "app\\OrderPage.xaml",
+              "ToolTip": "C:\\Users\\vedad\\Restoran\\app\\OrderPage.xaml",
+              "RelativeToolTip": "app\\OrderPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-17T21:46:00.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomePageReadOnly.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vedad\\Restoran\\app\\HomePageReadOnly.xaml.cs",
+              "RelativeDocumentMoniker": "app\\HomePageReadOnly.xaml.cs",
+              "ToolTip": "C:\\Users\\vedad\\Restoran\\app\\HomePageReadOnly.xaml.cs",
+              "RelativeToolTip": "app\\HomePageReadOnly.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T21:45:11.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vedad\\Restoran\\app\\OrderPage.xaml.cs",
+              "RelativeDocumentMoniker": "app\\OrderPage.xaml.cs",
+              "ToolTip": "C:\\Users\\vedad\\Restoran\\app\\OrderPage.xaml.cs",
+              "RelativeToolTip": "app\\OrderPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T21:44:49.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vedad\\Restoran\\app\\LoginPage.xaml.cs",
+              "RelativeDocumentMoniker": "app\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\Users\\vedad\\Restoran\\app\\LoginPage.xaml.cs",
+              "RelativeToolTip": "app\\LoginPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-17T21:24:51.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\vedad\\Restoran\\app\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "app\\LoginPage.xaml",
+              "ToolTip": "C:\\Users\\vedad\\Restoran\\app\\LoginPage.xaml",
+              "RelativeToolTip": "app\\LoginPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-17T21:24:43.41Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
