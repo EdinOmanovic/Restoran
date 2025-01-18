@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:app.Converters"
              x:Class="app.HomePageReadOnly"
              Title="USER"
              BackgroundImageSource="back.jpg"
              Padding="0"
              x:Name="MainPage">
+
+    <ContentPage.Resources>
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
+    </ContentPage.Resources>
+
     <CollectionView ItemsSource="{Binding Tables}" SelectionMode="None">
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" Span="2" />
@@ -22,6 +28,14 @@
                                 Command="{Binding Source={x:Reference MainPage}, Path=OrderCommand}"
                                 CommandParameter="{Binding .}"
                                 BackgroundColor="#D18588"
+                                TextColor="White"
+                                CornerRadius="5"
+                                Margin="0,5,0,0"/>
+                        <Button Text="Oslobodi sto" 
+                                IsVisible="{Binding IsAvailable, Converter={StaticResource InverseBoolConverter}}"
+                                Command="{Binding Source={x:Reference MainPage}, Path=ClearTableCommand}"
+                                CommandParameter="{Binding .}"
+                                BackgroundColor="#4CAF50"
                                 TextColor="White"
                                 CornerRadius="5"
                                 Margin="0,5,0,0"/>

@@ -1,7 +1,5 @@
 using SQLite;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Windows.Input;
 
 namespace app
@@ -11,6 +9,7 @@ namespace app
         private SQLiteConnection _database;
         public ObservableCollection<Table> Tables { get; set; }
         public ICommand OrderCommand { get; private set; }
+        public ICommand ClearTableCommand { get; private set; }
 
         public HomePageReadOnly()
         {
@@ -18,8 +17,9 @@ namespace app
             InitializeDatabase();
             LoadTables();
 
-            // Initialize the OrderCommand
+            // Initialize commands
             OrderCommand = new Command<Table>(async (table) => await OnOrderClicked(table));
+            ClearTableCommand = new Command<Table>(async (table) => await OnClearTableClicked(table));
             BindingContext = this;
         }
 
@@ -29,14 +29,14 @@ namespace app
             _database = new SQLiteConnection(dbPath);
             _database.CreateTable<Table>();
 
-            // Add initial data if the database is empty
+            // Add sample tables if none exist
             if (!_database.Table<Table>().Any())
             {
-                for (int i = 1; i <= 20; i++)
+                for (int i = 1; i <= 6; i++)
                 {
                     _database.Insert(new Table
                     {
-                        TableNumber = $"Stol {i}",
+                        TableNumber = $"Table {i}",
                         IsAvailable = true
                     });
                 }
@@ -45,31 +45,50 @@ namespace app
 
         private void LoadTables()
         {
-            var tables = _database.Table<Table>().ToList();
-            Tables = new ObservableCollection<Table>(tables);
+            var tablesList = _database.Table<Table>().ToList();
+            Tables = new ObservableCollection<Table>(tablesList);
         }
 
         private async Task OnOrderClicked(Table table)
         {
             if (table.IsAvailable)
             {
-                bool confirmed = await DisplayAlert("Narudžba",
-                    $"Želite li naruèiti za {table.TableNumber}?", "Da", "Ne");
-
-                if (confirmed)
+                // Extract table number from string (e.g., "Table 1" -> 1)
+                if (int.TryParse(table.TableNumber.Split(' ')[1], out int tableNumber))
                 {
-                    // Extract table number from the string (e.g., "Stol 1" -> 1)
-                    string numberStr = table.TableNumber.Split(' ')[1];
-                    if (int.TryParse(numberStr, out int tableNumber))
-                    {
-                        // Navigate to OrderPage
-                        await Navigation.PushAsync(new OrderPage(tableNumber));
-                    }
+                    // Navigate to OrderPage
+                    await Navigation.PushAsync(new OrderPage(tableNumber));
                 }
             }
             else
             {
-                await DisplayAlert("Info", "Ovaj stol je veæ zauzet.", "OK");
+                await DisplayAlert("Info", "This table is already occupied", "OK");
+            }
+        }
+
+        private async Task OnClearTableClicked(Table table)
+        {
+            if (!table.IsAvailable)
+            {
+                bool confirm = await DisplayAlert("Clear Table",
+                    $"Are you sure you want to clear {table.TableNumber}?",
+                    "Yes", "No");
+
+                if (confirm)
+                {
+                    // Update table status in database
+                    table.IsAvailable = true;
+                    _database.Update(table);
+
+                    // Refresh the tables list
+                    LoadTables();
+
+                    await DisplayAlert("Success", $"{table.TableNumber} has been cleared", "OK");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Info", "This table is already available", "OK");
             }
         }
 
@@ -79,7 +98,7 @@ namespace app
             public int Id { get; set; }
             public string TableNumber { get; set; }
             public bool IsAvailable { get; set; }
-            public string Status => IsAvailable ? "Slobodan" : "Zauzet";
+            public string Status => IsAvailable ? "Available" : "Occupied";
             public string StatusColor => IsAvailable ? "Green" : "Red";
             public string ImageUrl { get; set; } = "table.png";
         }

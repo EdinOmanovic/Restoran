@@ -17,11 +17,13 @@ public partial class OrderPage : ContentPage
         TableNumberLabel.Text = $"Table {_tableNumber}";
 
         InitializeDatabase();
-        SeedMenuItems(); // Add sample menu items
+        SeedMenuItems();
         LoadMenuItems();
 
         _orderItems = new ObservableCollection<OrderItem>();
         OrderItemsListView.ItemsSource = _orderItems;
+
+        LoadExistingOrders();
         UpdateTotal();
     }
 
@@ -30,9 +32,29 @@ public partial class OrderPage : ContentPage
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "app.db3");
         _database = new SQLiteConnection(dbPath);
         _database.CreateTable<OrderItem>();
-        _database.CreateTable<HomePageWithCRUD.Item>(); // For menu items
+        _database.CreateTable<HomePageWithCRUD.Item>();
+        _database.CreateTable<HomePageReadOnly.Table>();
     }
 
+    private void LoadExistingOrders()
+    {
+        try
+        {
+            // Get all orders for this table that haven't been completed
+            var existingOrders = _database.Table<OrderItem>()
+                .Where(o => o.TableNumber == _tableNumber)
+                .ToList();
+
+            foreach (var order in existingOrders)
+            {
+                _orderItems.Add(order);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading existing orders: {ex.Message}");
+        }
+    }
     private void SeedMenuItems()
     {
         // Check if we already have menu items
@@ -174,6 +196,7 @@ public partial class OrderPage : ContentPage
             {
                 // Update existing item quantity
                 existingItem.Quantity += quantity;
+                _database.Update(existingItem);
                 // Force refresh of the collection
                 var index = _orderItems.IndexOf(existingItem);
                 _orderItems[index] = existingItem;
@@ -187,8 +210,11 @@ public partial class OrderPage : ContentPage
                     ItemName = selectedItem.Name,
                     Quantity = quantity,
                     Price = selectedItem.Price,
-                    TableNumber = _tableNumber
+                    TableNumber = _tableNumber,
+                    OrderTime = DateTime.Now,
+                    IsCompleted = false // Add this flag to track order status
                 };
+                _database.Insert(orderItem);
                 _orderItems.Add(orderItem);
             }
 
@@ -208,6 +234,8 @@ public partial class OrderPage : ContentPage
     {
         if (sender is Button button && button.CommandParameter is OrderItem item)
         {
+            _database.Delete<OrderItem>(item.Id);
+            // Remove from collection
             _orderItems.Remove(item);
             UpdateTotal();
         }
@@ -235,19 +263,32 @@ public partial class OrderPage : ContentPage
         {
             try
             {
-                // Save order items to database
+                // Mark all orders as completed
                 foreach (var item in _orderItems)
                 {
-                    _database.Insert(item);
+                    item.IsCompleted = true;
+                    _database.Update(item);
                 }
 
-                // Update table status
-                var tables = _database.Table<HomePageReadOnly.Table>().ToList();
-                var table = tables.FirstOrDefault(t => t.TableNumber == $"Table {_tableNumber}");
+                // Update table status - Find the table and set it as unavailable
+                var tableNumber = $"Stol {_tableNumber}";
+                var table = _database.Table<HomePageReadOnly.Table>()
+                    .FirstOrDefault(t => t.TableNumber == tableNumber);
+
                 if (table != null)
                 {
-                    table.IsAvailable = false;
+                    table.IsAvailable = false; // Set table as unavailable
                     _database.Update(table);
+                }
+                else
+                {
+                    // If table doesn't exist, create it
+                    var newTable = new HomePageReadOnly.Table
+                    {
+                        TableNumber = tableNumber,
+                        IsAvailable = false // Set as unavailable
+                    };
+                    _database.Insert(newTable);
                 }
 
                 await DisplayAlert("Success", "Order completed successfully!", "OK");
@@ -270,5 +311,6 @@ public partial class OrderPage : ContentPage
         public decimal Price { get; set; }
         public int TableNumber { get; set; }
         public DateTime OrderTime { get; set; } = DateTime.Now;
+        public bool IsCompleted { get; set; }
     }
 }
