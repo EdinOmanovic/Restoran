@@ -31,6 +31,14 @@
                                 TextColor="White"
                                 CornerRadius="5"
                                 Margin="0,5,0,0"/>
+                        <Button Text="Pregledaj Detalje" 
+                                IsVisible="{Binding IsAvailable, Converter={StaticResource InverseBoolConverter}}"
+                                Command="{Binding Source={x:Reference MainPage}, Path=ViewDetailsCommand}"
+                                CommandParameter="{Binding .}"
+                                BackgroundColor="#2196F3"
+                                TextColor="White"
+                                CornerRadius="5"
+                                Margin="0,5,0,0"/>
                         <Button Text="Oslobodi sto" 
                                 IsVisible="{Binding IsAvailable, Converter={StaticResource InverseBoolConverter}}"
                                 Command="{Binding Source={x:Reference MainPage}, Path=ClearTableCommand}"

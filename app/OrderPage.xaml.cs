@@ -299,6 +299,10 @@ public partial class OrderPage : ContentPage
                 await DisplayAlert("Error", $"Greška pri kreiranju narudžbe : {ex.Message}", "OK");
             }
         }
+        foreach (var item in _orderItems)
+        {
+            Console.WriteLine($"Saving order item: {item.ItemName}, Table: {item.TableNumber}, Time: {item.OrderTime}");
+        }
     }
 
     public class OrderItem

@@ -64,20 +64,20 @@
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\ss.scale-100.png">
       <PackagePath>ss.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\burger.scale-100.jpg">
-      <PackagePath>burger.scale-100.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\logo.scale-100.webp">
+      <PackagePath>logo.scale-100.webp</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\sto.scale-100.png">
       <PackagePath>sto.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\back.scale-100.jpg">
-      <PackagePath>back.scale-100.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\chicken.scale-100.jpg">
+      <PackagePath>chicken.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\sushi.scale-100.jpg">
       <PackagePath>sushi.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\pasta.scale-100.jpg">
-      <PackagePath>pasta.scale-100.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\desert.scale-100.jpg">
+      <PackagePath>desert.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
@@ -217,29 +217,29 @@
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dorucak.scale-100.jpg">
-      <PackagePath>dorucak.scale-100.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\chicken.scale-100.jpg">
-      <PackagePath>chicken.scale-100.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\fastfood.scale-100.png">
+      <PackagePath>fastfood.scale-100.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\pizza.scale-100.jpg">
       <PackagePath>pizza.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\logo.scale-100.webp">
-      <PackagePath>logo.scale-100.webp</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\desert.scale-100.jpg">
-      <PackagePath>desert.scale-100.jpg</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\restoran.scale-100.jpg">
       <PackagePath>restoran.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\burger.scale-100.jpg">
+      <PackagePath>burger.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\back.scale-100.jpg">
+      <PackagePath>back.scale-100.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dorucak.scale-100.jpg">
+      <PackagePath>dorucak.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\cevapi.scale-100.jpg">
       <PackagePath>cevapi.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\fastfood.scale-100.png">
-      <PackagePath>fastfood.scale-100.png</PackagePath>
+    <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\pasta.scale-100.jpg">
+      <PackagePath>pasta.scale-100.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\vedad\Restoran\app\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="app.OrderDetailsPage"
+             Title="Detalji Narudžbe"
+             BackgroundImageSource="back.jpg">
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <!-- Header -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="#D18588" 
+               Padding="20" 
+               Margin="0,0,0,20"
+               CornerRadius="15">
+            <VerticalStackLayout Spacing="10">
+                <Label x:Name="TableNumberLabel" 
+                       FontSize="24" 
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="OrderTimeLabel"
+                       FontSize="16"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Order Items List -->
+        <ScrollView Grid.Row="1">
+            <Frame BackgroundColor="White" 
+                   Padding="20"
+                   CornerRadius="15"
+                   BorderColor="#D18588">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Stavke Narudžbe" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           TextColor="#D18588"/>
+
+                    <ListView x:Name="OrderItemsListView" 
+          HeightRequest="400"
+          SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10" 
+                      ColumnDefinitions="*,Auto,Auto,Auto" 
+                      ColumnSpacing="15">
+                                        <Label Text="{Binding ItemName}" 
+                           Grid.Column="0"
+                           VerticalOptions="Center"
+                           FontSize="16"/>
+                                        <Label Text="{Binding Quantity}" 
+                           Grid.Column="1"
+                           VerticalOptions="Center"
+                           FontSize="16"/>
+                                        <Label Text="×" 
+                           Grid.Column="2"
+                           VerticalOptions="Center"
+                           FontSize="16"/>
+                                        <Label Text="{Binding Price, StringFormat='{0:C}'}" 
+                           Grid.Column="3"
+                           VerticalOptions="Center"
+                           FontSize="16"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <Frame BorderColor="#D18588" 
+                           CornerRadius="10"
+                           Padding="15"
+                           HorizontalOptions="End">
+                        <Label x:Name="TotalLabel" 
+                               FontSize="20" 
+                               FontAttributes="Bold" 
+                               TextColor="#D18588"/>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+        </ScrollView>
+    </Grid>
+</ContentPage>

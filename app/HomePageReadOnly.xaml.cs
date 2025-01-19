@@ -10,6 +10,7 @@ namespace app
         public ObservableCollection<Table> Tables { get; set; }
         public ICommand OrderCommand { get; private set; }
         public ICommand ClearTableCommand { get; private set; }
+        public ICommand ViewDetailsCommand { get; private set; }
 
         public HomePageReadOnly()
         {
@@ -18,10 +19,19 @@ namespace app
             UpdateTableNames();
             LoadTables();
 
-            // Initialize commands
             OrderCommand = new Command<Table>(async (table) => await OnOrderClicked(table));
+            ViewDetailsCommand = new Command<Table>(async (table) => await OnViewDetailsClicked(table));
             ClearTableCommand = new Command<Table>(async (table) => await OnClearTableClicked(table));
             BindingContext = this;
+
+            // Subscribe to navigation events
+            this.NavigatedTo += HomePageReadOnly_NavigatedTo;
+        }
+
+        private void HomePageReadOnly_NavigatedTo(object sender, NavigatedToEventArgs e)
+        {
+            // Refresh tables when returning to this page
+            LoadTables();
         }
 
         private void InitializeDatabase()
@@ -48,16 +58,39 @@ namespace app
         {
             var tablesList = _database.Table<Table>().ToList();
             Tables = new ObservableCollection<Table>(tablesList);
+            OnPropertyChanged(nameof(Tables));
+        }
+
+        private async Task OnViewDetailsClicked(Table table)
+        {
+            if (!table.IsAvailable)
+            {
+                try
+                {
+                    string numberPart = table.TableNumber.Replace("Stol ", "");
+                    if (int.TryParse(numberPart, out int tableNumber))
+                    {
+                        await Navigation.PushAsync(new OrderDetailsPage(tableNumber));
+                    }
+                    else
+                    {
+                        await DisplayAlert("Greška", "Nije moguæe oèitati broj stola", "U redu");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error viewing details: {ex.Message}");
+                    await DisplayAlert("Greška", "Došlo je do greške pri otvaranju detalja", "U redu");
+                }
+            }
         }
 
         private async Task OnOrderClicked(Table table)
         {
             if (table.IsAvailable)
             {
-                // Extract table number from string (e.g., "Table 1" -> 1)
                 if (int.TryParse(table.TableNumber.Split(' ')[1], out int tableNumber))
                 {
-                    // Navigate to OrderPage
                     await Navigation.PushAsync(new OrderPage(tableNumber));
                 }
             }
@@ -77,14 +110,10 @@ namespace app
 
                 if (confirm)
                 {
-                    // Update table status in database
                     table.IsAvailable = true;
                     _database.Update(table);
-
-                    // Refresh the tables list
                     LoadTables();
-
-                    await DisplayAlert("Uspjeh", $"{table.TableNumber} je oèisæena", "OK");
+                    await DisplayAlert("Uspjeh", $"{table.TableNumber} je oèišæena", "OK");
                 }
             }
             else
@@ -92,21 +121,18 @@ namespace app
                 await DisplayAlert("Info", "Ovaj stol je veæ slobodan", "OK");
             }
         }
+
         private void UpdateTableNames()
         {
             try
             {
-                // Get all tables with "Table" prefix
                 var tablesToUpdate = _database.Table<Table>()
                     .Where(t => t.TableNumber.StartsWith("Table"))
                     .ToList();
 
                 foreach (var table in tablesToUpdate)
                 {
-                    // Replace "Table" with "Stol" in the table number
                     string newTableNumber = table.TableNumber.Replace("Table", "Stol");
-
-                    // Update the table number
                     _database.Execute(
                         "UPDATE Table SET TableNumber = ? WHERE Id = ?",
                         newTableNumber, table.Id);
@@ -117,6 +143,13 @@ namespace app
                 Console.WriteLine($"Error updating table names: {ex.Message}");
             }
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            LoadTables(); // Refresh tables when page appears
+        }
+
         public class Table
         {
             [PrimaryKey, AutoIncrement]
