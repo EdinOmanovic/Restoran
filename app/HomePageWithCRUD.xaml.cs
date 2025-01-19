@@ -1,4 +1,5 @@
 using SQLite;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 
@@ -8,11 +9,13 @@ namespace app
     {
         private SQLiteConnection _database;
         private Item _itemBeingEdited;
+        private ObservableCollection<Item> _items;
 
         public HomePageWithCRUD()
         {
             InitializeComponent();
             InitializeDatabase();
+            InitializeCollections();
             LoadItems();
         }
 
@@ -21,199 +24,198 @@ namespace app
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "app.db3");
             _database = new SQLiteConnection(dbPath);
             _database.CreateTable<Item>();
-
-            // Dodavanje testnih podataka
-            SeedData();
         }
 
-        private void SeedData()
+        private async void ViewDailyRevenue_Clicked(object sender, EventArgs e)
         {
-            // Provjera da li veæ postoji item "Pizza"
-            var existingItem = _database.Table<Item>().FirstOrDefault(i => i.Name == "Pizza");
-            if (existingItem == null)
+            try
             {
-                var pizzaItem = new Item
-                {
-                    Name = "Stol 1",
-                    Description = "Srednji",
-                    Price = 0,
-                    ImageUrl = "stp.png",
-                    Category = "Pizza"
-                };
-                _database.Insert(pizzaItem);
+                await Navigation.PushAsync(new DailySummaryPage());
             }
-
-            // Dodavanje testnih podataka za druge stavke
-            var existingChicken = _database.Table<Item>().FirstOrDefault(i => i.Name == "Chicken");
-            if (existingChicken == null)
+            catch (Exception ex)
             {
-                var chickenItem = new Item
-                {
-                    Name = "Stol 2",
-                    Description = "Srednji",
-                    Price = 0,
-                    ImageUrl = "sto.png",
-                    Category = "Chicken"
-                };
-                _database.Insert(chickenItem);
+                await DisplayAlert("Error", $"Unable to open daily revenue page: {ex.Message}", "OK");
             }
+        }
 
-            var existingBurger = _database.Table<Item>().FirstOrDefault(i => i.Name == "Burger");
-            if (existingBurger == null)
-            {
-                var burgerItem = new Item
-                {
-                    Name = "Cheese Burger",
-                    Description = "Classic cheeseburger with lettuce and tomato",
-                    Price = 6.50M,
-                    ImageUrl = "burger.jpg",
-                    Category = "Burger"
-                };
-                _database.Insert(burgerItem);
-            }
+        private void InitializeCollections()
+        {
+            _items = new ObservableCollection<Item>();
+            ItemsCollectionView.ItemsSource = _items;
 
-            var existingPasta = _database.Table<Item>().FirstOrDefault(i => i.Name == "Pasta");
-            if (existingPasta == null)
+            // Set up CategoryPicker if not already populated
+            if (CategoryPicker.ItemsSource == null)
             {
-                var pastaItem = new Item
+                CategoryPicker.ItemsSource = new List<string>
                 {
-                    Name = "Spaghetti Bolognese",
-                    Description = "Traditional spaghetti with meat sauce",
-                    Price = 12.00M,
-                    ImageUrl = "pasta.jpg",
-                    Category = "Pasta"
+                    "Pizza",
+                    "Burgers",
+                    "Pasta",
+                    "Salads",
+                    "Drinks",
+                    "Desserts"
                 };
-                _database.Insert(pastaItem);
-            }
-
-            var existingSushi = _database.Table<Item>().FirstOrDefault(i => i.Name == "Sushi");
-            if (existingSushi == null)
-            {
-                var sushiItem = new Item
-                {
-                    Name = "California Roll",
-                    Description = "Sushi rolls with crab and avocado",
-                    Price = 15.00M,
-                    ImageUrl = "sushi.jpg",
-                    Category = "Sushi"
-                };
-                _database.Insert(sushiItem);
-            }
-
-            var existingBreakfast = _database.Table<Item>().FirstOrDefault(i => i.Name == "Breakfast");
-            if (existingBreakfast == null)
-            {
-                var breakfastItem = new Item
-                {
-                    Name = "Pancakes",
-                    Description = "Fluffy pancakes with syrup",
-                    Price = 7.00M,
-                    ImageUrl = "dorucak.jpg",
-                    Category = "Breakfast"
-                };
-                _database.Insert(breakfastItem);
-            }
-
-            var existingDesert = _database.Table<Item>().FirstOrDefault(i => i.Name == "Desert");
-            if (existingDesert == null)
-            {
-                var desertItem = new Item
-                {
-                    Name = "Cake",
-                    Description = "Rich chocolate cake with cream",
-                    Price = 5.00M,
-                    ImageUrl = "desert.jpg",
-                    Category = "Desert"
-                };
-                _database.Insert(desertItem);
             }
         }
 
         private void LoadItems()
         {
-            var items = _database.Table<Item>().ToList();
-            ItemsListView.ItemsSource = items;
+            try
+            {
+                var items = _database.Table<Item>()
+                                   .OrderBy(i => i.Category)
+                                   .ThenBy(i => i.Name)
+                                   .ToList();
+
+                _items.Clear();
+                foreach (var item in items)
+                {
+                    _items.Add(item);
+                }
+
+                // Refresh the CollectionView
+                ItemsCollectionView.ItemsSource = null;
+                ItemsCollectionView.ItemsSource = _items;
+            }
+            catch (Exception ex)
+            {
+                MainThread.BeginInvokeOnMainThread(async () =>
+                {
+                    await DisplayAlert("Error", $"Error loading items: {ex.Message}", "OK");
+                });
+            }
         }
 
         private async void AddOrUpdateItemButton_Clicked(object sender, EventArgs e)
         {
-            string itemName = ItemNameEntry.Text;
-            string itemDescription = ItemDescriptionEntry.Text;
-            string itemPriceText = ItemPriceEntry.Text;
-            string itemImageUrl = ItemImageUrlEntry.Text;
-            string itemCategory = ItemCategoryEntry.Text; // Nova kategorija
-
-            if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(itemDescription) || string.IsNullOrEmpty(itemPriceText) || string.IsNullOrEmpty(itemImageUrl) || string.IsNullOrEmpty(itemCategory))
+            if (!ValidateInputs())
             {
-                await DisplayAlert("Greška", "Molimo unesite sve informacije", "OK");
+                await DisplayAlert("Error", "Please fill in all required fields", "OK");
                 return;
             }
 
-            decimal itemPrice = decimal.Parse(itemPriceText);
-
-            if (_itemBeingEdited == null)
+            try
             {
-                var newItem = new Item
+                if (_itemBeingEdited == null)
                 {
-                    Name = itemName,
-                    Description = itemDescription,
-                    Price = itemPrice,
-                    ImageUrl = itemImageUrl,
-                    Category = itemCategory // Postavljanje kategorije
-                };
+                    // Add new item
+                    var newItem = CreateItemFromInputs();
+                    _database.Insert(newItem);
+                    _items.Add(newItem);
+                    await DisplayAlert("Success", "Menu item added successfully", "OK");
+                }
+                else
+                {
+                    // Update existing item
+                    UpdateItemFromInputs(_itemBeingEdited);
+                    _database.Update(_itemBeingEdited);
 
-                _database.Insert(newItem);
+                    // Update the item in the ObservableCollection
+                    var index = _items.IndexOf(_itemBeingEdited);
+                    if (index != -1)
+                    {
+                        _items[index] = _itemBeingEdited;
+                    }
+
+                    _itemBeingEdited = null;
+                    await DisplayAlert("Success", "Menu item updated successfully", "OK");
+                }
+
+                ClearInputs();
+                LoadItems(); // Refresh the list
             }
-            else
+            catch (Exception ex)
             {
-                _itemBeingEdited.Name = itemName;
-                _itemBeingEdited.Description = itemDescription;
-                _itemBeingEdited.Price = itemPrice;
-                _itemBeingEdited.ImageUrl = itemImageUrl;
-                _itemBeingEdited.Category = itemCategory; // Ažuriranje kategorije
+                await DisplayAlert("Error", $"An error occurred: {ex.Message}", "OK");
+            }
+        }
 
-                _database.Update(_itemBeingEdited);
-                _itemBeingEdited = null;
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrWhiteSpace(ItemNameEntry.Text) ||
+                string.IsNullOrWhiteSpace(ItemDescriptionEntry.Text) ||
+                string.IsNullOrWhiteSpace(ItemPriceEntry.Text) ||
+                CategoryPicker.SelectedItem == null)
+            {
+                return false;
             }
 
-            LoadItems();
+            return decimal.TryParse(ItemPriceEntry.Text, out _);
+        }
 
+        private Item CreateItemFromInputs()
+        {
+            return new Item
+            {
+                Name = ItemNameEntry.Text.Trim(),
+                Description = ItemDescriptionEntry.Text.Trim(),
+                Price = decimal.Parse(ItemPriceEntry.Text),
+                Category = CategoryPicker.SelectedItem.ToString(),
+                ImageUrl = GetDefaultImageForCategory(CategoryPicker.SelectedItem.ToString())
+            };
+        }
+
+        private void UpdateItemFromInputs(Item item)
+        {
+            item.Name = ItemNameEntry.Text.Trim();
+            item.Description = ItemDescriptionEntry.Text.Trim();
+            item.Price = decimal.Parse(ItemPriceEntry.Text);
+            item.Category = CategoryPicker.SelectedItem.ToString();
+            item.ImageUrl = GetDefaultImageForCategory(CategoryPicker.SelectedItem.ToString());
+        }
+
+        private string GetDefaultImageForCategory(string category)
+        {
+            return category.ToLower() switch
+            {
+                "pizza" => "pizza.png",
+                "burgers" => "burger.png",
+                "pasta" => "pasta.png",
+                "salads" => "salad.png",
+                "drinks" => "drink.png",
+                "desserts" => "dessert.png",
+                _ => "food.png"
+            };
+        }
+
+        private void ClearInputs()
+        {
             ItemNameEntry.Text = string.Empty;
             ItemDescriptionEntry.Text = string.Empty;
             ItemPriceEntry.Text = string.Empty;
-            ItemImageUrlEntry.Text = string.Empty;
-            ItemCategoryEntry.Text = string.Empty; // Praznjenje polja za kategoriju
+            CategoryPicker.SelectedItem = null;
         }
 
         private void UpdateItemButton_Clicked(object sender, EventArgs e)
         {
-            var button = sender as Button;
-            var itemToUpdate = button?.CommandParameter as Item;
-
-            if (itemToUpdate == null)
-                return;
-
-            // Popuni polja s odabranim itemom
-            ItemNameEntry.Text = itemToUpdate.Name;
-            ItemDescriptionEntry.Text = itemToUpdate.Description;
-            ItemPriceEntry.Text = itemToUpdate.Price.ToString();
-            ItemImageUrlEntry.Text = itemToUpdate.ImageUrl;
-            ItemCategoryEntry.Text = itemToUpdate.Category; // Popunjavanje polja za kategoriju
-
-            _itemBeingEdited = itemToUpdate; // Pohrani item koji se ureðuje
+            if (sender is Button button && button.CommandParameter is Item itemToUpdate)
+            {
+                _itemBeingEdited = itemToUpdate;
+                ItemNameEntry.Text = itemToUpdate.Name;
+                ItemDescriptionEntry.Text = itemToUpdate.Description;
+                ItemPriceEntry.Text = itemToUpdate.Price.ToString();
+                CategoryPicker.SelectedItem = itemToUpdate.Category;
+            }
         }
 
         private async void DeleteItemButton_Clicked(object sender, EventArgs e)
         {
-            var button = sender as Button;
-            var itemId = (int)button?.CommandParameter;
-
-            var itemToDelete = _database.Table<Item>().FirstOrDefault(i => i.Id == itemId);
-            if (itemToDelete != null)
+            if (sender is Button button && button.CommandParameter is int itemId)
             {
-                _database.Delete(itemToDelete);
-                LoadItems();
-                await DisplayAlert("Uspješno", "Stavka je obrisana.", "OK");
+                bool confirm = await DisplayAlert("Confirm Delete",
+                    "Are you sure you want to delete this menu item?",
+                    "Yes", "No");
+
+                if (confirm)
+                {
+                    var itemToDelete = _items.FirstOrDefault(i => i.Id == itemId);
+                    if (itemToDelete != null)
+                    {
+                        _database.Delete<Item>(itemId);
+                        _items.Remove(itemToDelete);
+                        await DisplayAlert("Success", "Menu item deleted successfully", "OK");
+                    }
+                }
             }
         }
 
@@ -225,7 +227,7 @@ namespace app
             public string Description { get; set; }
             public decimal Price { get; set; }
             public string ImageUrl { get; set; }
-            public string Category { get; set; } // Novo polje za kategoriju
+            public string Category { get; set; }
         }
     }
 }

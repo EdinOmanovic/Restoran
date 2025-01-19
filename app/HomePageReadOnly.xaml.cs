@@ -24,13 +24,11 @@ namespace app
             ClearTableCommand = new Command<Table>(async (table) => await OnClearTableClicked(table));
             BindingContext = this;
 
-            // Subscribe to navigation events
             this.NavigatedTo += HomePageReadOnly_NavigatedTo;
         }
 
         private void HomePageReadOnly_NavigatedTo(object sender, NavigatedToEventArgs e)
         {
-            // Refresh tables when returning to this page
             LoadTables();
         }
 
@@ -39,8 +37,8 @@ namespace app
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "app.db3");
             _database = new SQLiteConnection(dbPath);
             _database.CreateTable<Table>();
+            _database.CreateTable<OrderPage.OrderItem>(); // Dodajemo i OrderItem tabelu
 
-            // Add sample tables if none exist
             if (!_database.Table<Table>().Any())
             {
                 for (int i = 1; i <= 6; i++)
@@ -74,7 +72,7 @@ namespace app
                     }
                     else
                     {
-                        await DisplayAlert("Greška", "Nije moguæe oèitati broj stola", "U redu");
+                        await DisplayAlert("Greška", "Nije mogu?e o?itati broj stola", "U redu");
                     }
                 }
                 catch (Exception ex)
@@ -96,7 +94,7 @@ namespace app
             }
             else
             {
-                await DisplayAlert("Info", "Ovaj stol je veæ zauzet", "OK");
+                await DisplayAlert("Info", "Ovaj stol je ve? zauzet", "OK");
             }
         }
 
@@ -104,21 +102,47 @@ namespace app
         {
             if (!table.IsAvailable)
             {
-                bool confirm = await DisplayAlert("Oèisti stol",
-                    $"Da li sigurno želite oèistiti narudžbu : {table.TableNumber}?",
+                bool confirm = await DisplayAlert("O?isti stol",
+                    $"Da li sigurno želite o?istiti stol: {table.TableNumber}? Sve narudžbe za ovaj stol ?e biti obrisane.",
                     "Da", "Ne");
 
                 if (confirm)
                 {
-                    table.IsAvailable = true;
-                    _database.Update(table);
-                    LoadTables();
-                    await DisplayAlert("Uspjeh", $"{table.TableNumber} je oèišæena", "OK");
+                    try
+                    {
+                        // Dohvati broj stola
+                        int tableNumber = int.Parse(table.TableNumber.Replace("Stol ", ""));
+
+                        // Obriši sve narudžbe za ovaj stol
+                        var orderItems = _database.Table<OrderPage.OrderItem>()
+                            .Where(o => o.TableNumber == tableNumber)
+                            .ToList();
+
+                        foreach (var orderItem in orderItems)
+                        {
+                            _database.Delete<OrderPage.OrderItem>(orderItem.Id);
+                        }
+
+                        // Ažuriraj status stola
+                        table.IsAvailable = true;
+                        _database.Update(table);
+                        LoadTables();
+
+                        await DisplayAlert("Uspjeh",
+                            $"{table.TableNumber} je o?iš?en i sve narudžbe su obrisane",
+                            "OK");
+                    }
+                    catch (Exception ex)
+                    {
+                        await DisplayAlert("Greška",
+                            $"Došlo je do greške pri ?iš?enju stola: {ex.Message}",
+                            "OK");
+                    }
                 }
             }
             else
             {
-                await DisplayAlert("Info", "Ovaj stol je veæ slobodan", "OK");
+                await DisplayAlert("Info", "Ovaj stol je ve? slobodan", "OK");
             }
         }
 
@@ -147,7 +171,7 @@ namespace app
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            LoadTables(); // Refresh tables when page appears
+            LoadTables();
         }
 
         public class Table

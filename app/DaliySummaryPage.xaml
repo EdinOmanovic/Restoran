@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="app.DailySummaryPage"
+             Title="Dnevni Pregled"
+             BackgroundImageSource="back.jpg">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        <!-- Zaglavlje -->
+        <Frame Grid.Row="0" 
+               BackgroundColor="#D18588" 
+               Padding="20" 
+               Margin="0,0,0,20"
+               CornerRadius="15">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Pregled Dnevnih Narudžbi" 
+                       FontSize="28" 
+                       FontAttributes="Bold" 
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                <Label x:Name="dateLabelSummary"
+                       FontSize="20"
+                       TextColor="White"
+                       HorizontalOptions="Center"/>
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Button Text="Prethodni Dan" 
+                            Clicked="OnPreviousDayClicked"
+                            BackgroundColor="White"
+                            TextColor="#D18588"/>
+                    <Button Text="Sljedeći Dan" 
+                            Clicked="OnNextDayClicked"
+                            BackgroundColor="White"
+                            TextColor="#D18588"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Sadržaj Pregleda -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="15">
+                <!-- Ukupna Statistika -->
+                <Frame BackgroundColor="White" 
+                       Padding="20"
+                       CornerRadius="15"
+                       BorderColor="#D18588">
+                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" RowSpacing="15">
+                        <Label Text="Ukupno Narudžbi:" Grid.Column="0" Grid.Row="0"/>
+                        <Label x:Name="totalOrdersLabelSummary" Grid.Column="1" Grid.Row="0"/>
+
+                        <Label Text="Ukupan Prihod:" Grid.Column="0" Grid.Row="1"/>
+                        <Label x:Name="totalRevenueLabelSummary" Grid.Column="1" Grid.Row="1"/>
+
+                        <Label Text="Prosječna Vrijednost Narudžbe:" Grid.Column="0" Grid.Row="2"/>
+                        <Label x:Name="averageOrderLabelSummary" Grid.Column="1" Grid.Row="2"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Lista Narudžbi -->
+                <Frame BackgroundColor="White" 
+                       Padding="20"
+                       CornerRadius="15"
+                       BorderColor="#D18588">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Lista Narudžbi" 
+                               FontSize="20" 
+                               FontAttributes="Bold"
+                               TextColor="#D18588"/>
+
+                        <CollectionView x:Name="ordersCollectionViewSummary"
+                                      EmptyView="Nema narudžbi za ovaj dan">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Margin="0,5" BorderColor="#D18588" Padding="10">
+                                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                                            <Label Text="{Binding TableNumber, StringFormat='Sto {0}'}"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding OrderTime, StringFormat='{0:HH:mm}'}"
+                                                   Grid.Column="1"/>
+                                            <Label Text="{Binding TotalAmount, StringFormat='{0:C}'}"
+                                                   Grid.Row="1"
+                                                   Grid.Column="1"/>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </VerticalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

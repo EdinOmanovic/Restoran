@@ -10,6 +10,20 @@ public partial class OrderPage : ContentPage
     private ObservableCollection<OrderItem> _orderItems;
     private decimal _totalAmount = 0;
 
+    public class OrderItem
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public int ItemId { get; set; }
+        public string ItemName { get; set; }
+        public int Quantity { get; set; }
+        public decimal Price { get; set; }
+        public int TableNumber { get; set; }
+        public DateTime OrderTime { get; set; } = DateTime.Now;
+        public bool IsCompleted { get; set; }
+        public string OrderGroupId { get; set; }
+    }
+
     public OrderPage(int tableNumber)
     {
         InitializeComponent();
@@ -23,7 +37,7 @@ public partial class OrderPage : ContentPage
         _orderItems = new ObservableCollection<OrderItem>();
         OrderItemsListView.ItemsSource = _orderItems;
 
-        LoadExistingOrders();
+        LoadCurrentOrderItems();
         UpdateTotal();
     }
 
@@ -36,144 +50,23 @@ public partial class OrderPage : ContentPage
         _database.CreateTable<HomePageReadOnly.Table>();
     }
 
-    private void LoadExistingOrders()
+    private void LoadCurrentOrderItems()
     {
         try
         {
-            // Get all orders for this table that haven't been completed
-            var existingOrders = _database.Table<OrderItem>()
-                .Where(o => o.TableNumber == _tableNumber)
+            var currentOrders = _database.Table<OrderItem>()
+                .Where(o => o.TableNumber == _tableNumber && !o.IsCompleted)
                 .ToList();
 
-            foreach (var order in existingOrders)
+            _orderItems.Clear();
+            foreach (var order in currentOrders)
             {
                 _orderItems.Add(order);
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error loading existing orders: {ex.Message}");
-        }
-    }
-    private void SeedMenuItems()
-    {
-        // Check if we already have menu items
-        if (_database.Table<HomePageWithCRUD.Item>().Count() == 0)
-        {
-            var menuItems = new List<HomePageWithCRUD.Item>
-            {
-                // Main Dishes
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Margherita Pizza",
-                    Description = "Classic tomato sauce, mozzarella, and basil",
-                    Price = 12.99M,
-                    Category = "Pizza",
-                    ImageUrl = "pizza.png"
-                },
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Pepperoni Pizza",
-                    Description = "Tomato sauce, mozzarella, and pepperoni",
-                    Price = 14.99M,
-                    Category = "Pizza",
-                    ImageUrl = "pizza.png"
-                },
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Classic Burger",
-                    Description = "Beef patty, lettuce, tomato, cheese",
-                    Price = 10.99M,
-                    Category = "Burgers",
-                    ImageUrl = "burger.png"
-                },
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Chicken Burger",
-                    Description = "Grilled chicken, avocado, bacon",
-                    Price = 11.99M,
-                    Category = "Burgers",
-                    ImageUrl = "burger.png"
-                },
-
-                // Pasta
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Spaghetti Carbonara",
-                    Description = "Creamy sauce with pancetta and parmesan",
-                    Price = 13.99M,
-                    Category = "Pasta",
-                    ImageUrl = "pasta.png"
-                },
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Penne Arrabbiata",
-                    Description = "Spicy tomato sauce with garlic",
-                    Price = 12.99M,
-                    Category = "Pasta",
-                    ImageUrl = "pasta.png"
-                },
-
-                // Salads
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Caesar Salad",
-                    Description = "Romaine lettuce, croutons, parmesan",
-                    Price = 8.99M,
-                    Category = "Salads",
-                    ImageUrl = "salad.png"
-                },
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Greek Salad",
-                    Description = "Mixed greens, feta, olives, cucumber",
-                    Price = 9.99M,
-                    Category = "Salads",
-                    ImageUrl = "salad.png"
-                },
-
-                // Drinks
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Coca Cola",
-                    Description = "330ml",
-                    Price = 2.99M,
-                    Category = "Drinks",
-                    ImageUrl = "drink.png"
-                },
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Fresh Orange Juice",
-                    Description = "300ml",
-                    Price = 3.99M,
-                    Category = "Drinks",
-                    ImageUrl = "drink.png"
-                },
-
-                // Desserts
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Chocolate Cake",
-                    Description = "Rich chocolate cake with cream",
-                    Price = 6.99M,
-                    Category = "Desserts",
-                    ImageUrl = "dessert.png"
-                },
-                new HomePageWithCRUD.Item
-                {
-                    Name = "Tiramisu",
-                    Description = "Classic Italian coffee-flavored dessert",
-                    Price = 7.99M,
-                    Category = "Desserts",
-                    ImageUrl = "dessert.png"
-                }
-            };
-
-            // Insert all menu items
-            foreach (var item in menuItems)
-            {
-                _database.Insert(item);
-            }
+            Console.WriteLine($"Error loading current order items: {ex.Message}");
         }
     }
 
@@ -182,6 +75,36 @@ public partial class OrderPage : ContentPage
         var items = _database.Table<HomePageWithCRUD.Item>().ToList();
         MenuItemPicker.ItemsSource = items;
         MenuItemPicker.ItemDisplayBinding = new Binding("Name");
+    }
+
+    private void SeedMenuItems()
+    {
+        if (_database.Table<HomePageWithCRUD.Item>().Count() == 0)
+        {
+            var menuItems = new List<HomePageWithCRUD.Item>
+            {
+                new HomePageWithCRUD.Item
+                {
+                    Name = "Margherita Pizza",
+                    Description = "Classic tomato sauce, mozzarella, and basil",
+                    Price = 12.99M,
+                    Category = "Pizza",
+                    ImageUrl = "pizza.png"
+                },
+                // Dodajte ostale stavke menija po potrebi
+            };
+
+            foreach (var item in menuItems)
+            {
+                _database.Insert(item);
+            }
+        }
+    }
+
+    private void UpdateTotal()
+    {
+        _totalAmount = _orderItems.Sum(item => item.Price * item.Quantity);
+        TotalLabel.Text = $"Ukupno ${_totalAmount:F2}";
     }
 
     private void OnAddToOrderClicked(object sender, EventArgs e)
@@ -194,16 +117,13 @@ public partial class OrderPage : ContentPage
 
             if (existingItem != null)
             {
-                // Update existing item quantity
                 existingItem.Quantity += quantity;
                 _database.Update(existingItem);
-                // Force refresh of the collection
                 var index = _orderItems.IndexOf(existingItem);
                 _orderItems[index] = existingItem;
             }
             else
             {
-                // Add new item
                 var orderItem = new OrderItem
                 {
                     ItemId = selectedItem.Id,
@@ -212,7 +132,7 @@ public partial class OrderPage : ContentPage
                     Price = selectedItem.Price,
                     TableNumber = _tableNumber,
                     OrderTime = DateTime.Now,
-                    IsCompleted = false // Add this flag to track order status
+                    IsCompleted = false
                 };
                 _database.Insert(orderItem);
                 _orderItems.Add(orderItem);
@@ -220,13 +140,12 @@ public partial class OrderPage : ContentPage
 
             UpdateTotal();
 
-            // Clear inputs
             MenuItemPicker.SelectedItem = null;
             QuantityEntry.Text = string.Empty;
         }
         else
         {
-            DisplayAlert("Error", "Molimo izaberite validnu stavku i unesite kolièinu brojèano!", "OK");
+            DisplayAlert("Error", "Molimo izaberite validnu stavku i unesite koli?inu broj?ano!", "OK");
         }
     }
 
@@ -235,16 +154,9 @@ public partial class OrderPage : ContentPage
         if (sender is Button button && button.CommandParameter is OrderItem item)
         {
             _database.Delete<OrderItem>(item.Id);
-            // Remove from collection
             _orderItems.Remove(item);
             UpdateTotal();
         }
-    }
-
-    private void UpdateTotal()
-    {
-        _totalAmount = _orderItems.Sum(item => item.Price * item.Quantity);
-        TotalLabel.Text = $"Ukupno ${_totalAmount:F2}";
     }
 
     private async void OnCompleteOrderClicked(object sender, EventArgs e)
@@ -263,30 +175,31 @@ public partial class OrderPage : ContentPage
         {
             try
             {
-                // Mark all orders as completed
+                string orderGroupId = Guid.NewGuid().ToString();
+
                 foreach (var item in _orderItems)
                 {
                     item.IsCompleted = true;
+                    item.OrderGroupId = orderGroupId;
+                    item.OrderTime = DateTime.Now;
                     _database.Update(item);
                 }
 
-                // Update table status - Find the table and set it as unavailable
                 var tableNumber = $"Stol {_tableNumber}";
                 var table = _database.Table<HomePageReadOnly.Table>()
                     .FirstOrDefault(t => t.TableNumber == tableNumber);
 
                 if (table != null)
                 {
-                    table.IsAvailable = false; // Set table as unavailable
+                    table.IsAvailable = false;
                     _database.Update(table);
                 }
                 else
                 {
-                    // If table doesn't exist, create it
                     var newTable = new HomePageReadOnly.Table
                     {
                         TableNumber = tableNumber,
-                        IsAvailable = false // Set as unavailable
+                        IsAvailable = false
                     };
                     _database.Insert(newTable);
                 }
@@ -296,25 +209,8 @@ public partial class OrderPage : ContentPage
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", $"Greška pri kreiranju narudžbe : {ex.Message}", "OK");
+                await DisplayAlert("Error", $"Greška pri kreiranju narudžbe: {ex.Message}", "OK");
             }
         }
-        foreach (var item in _orderItems)
-        {
-            Console.WriteLine($"Saving order item: {item.ItemName}, Table: {item.TableNumber}, Time: {item.OrderTime}");
-        }
-    }
-
-    public class OrderItem
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public int ItemId { get; set; }
-        public string ItemName { get; set; }
-        public int Quantity { get; set; }
-        public decimal Price { get; set; }
-        public int TableNumber { get; set; }
-        public DateTime OrderTime { get; set; } = DateTime.Now;
-        public bool IsCompleted { get; set; }
     }
 }

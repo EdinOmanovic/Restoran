@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="DaliySummaryPage.xaml.cs">
+	    <DependentUpon>DaliySummaryPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="OrderDetails.xaml.cs">
 	    <DependentUpon>OrderDetails.xaml</DependentUpon>
 	  </Compile>
@@ -83,12 +86,23 @@
 	  <MauiXaml Update="LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="DaliySummaryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="OrderDetails.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="RegisterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EditorConfigFiles Remove="C:\Users\omano\Desktop\Rma1\app\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="C:\Users\omano\Desktop\Rma1\app\.editorconfig" />
 	</ItemGroup>
 
 </Project>

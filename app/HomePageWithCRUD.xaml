@@ -2,42 +2,133 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="app.HomePageWithCRUD"
-             Title="ADMIN"
-             BackgroundImageSource="back.jpg"
-             Padding="0">
-    <StackLayout Padding="20">
-        <Entry x:Name="ItemNameEntry" Placeholder="Naziv stavke" />
-        <Entry x:Name="ItemDescriptionEntry" Placeholder="Opis stavke" />
-        <Entry x:Name="ItemPriceEntry" Placeholder="Cijena" Keyboard="Numeric" />
-        <Entry x:Name="ItemImageUrlEntry" Placeholder="URL slike" />
-        <Entry x:Name="ItemCategoryEntry" Placeholder="Kaetgorija" />
-        <!-- Novo polje za kategoriju -->
+             Title="Upravljanje Menijem"
+             BackgroundImageSource="back.jpg">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <!-- Dnevni Prihod Dugme -->
+            <Button Text="Pregledaj Dnevni Prihod" 
+                    Clicked="ViewDailyRevenue_Clicked"
+                    BackgroundColor="#D18588"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    CornerRadius="10"
+                    Margin="0,0,0,20"/>
 
-        <Button Text="Dodaj/Ažuriraj stavku" Clicked="AddOrUpdateItemButton_Clicked" BackgroundColor="#D18588" />
+            <!-- Dodaj/Uredi Stavku Sekcija -->
+            <Frame BackgroundColor="White" Padding="15" CornerRadius="10" Margin="0,0,0,20">
+                <StackLayout Spacing="10">
+                    <Label Text="Dodaj/Uredi Stavku Menija" FontSize="20" TextColor="#D18588" FontAttributes="Bold"/>
 
-        <ListView x:Name="ItemsListView" HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="10">
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" Padding="5">
-                                <Image Source="{Binding ImageUrl}" HeightRequest="60" WidthRequest="60" />
-                                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" Padding="5">
-                                    <Label Text="{Binding Name}" FontSize="16" FontAttributes="Bold" />
-                                    <Label Text="{Binding Description}" FontSize="12" LineBreakMode="TailTruncation" />
-                                    <Label Text="{Binding Price, StringFormat='{0:C}'}" FontSize="14" VerticalOptions="End" />
-                                    <Label Text="{Binding Category}" FontSize="12" />
-                                    <!-- Prikaz kategorije -->
+                    <Entry x:Name="ItemNameEntry" 
+                           Placeholder="Naziv stavke"
+                           BackgroundColor="#f5f5f5"
+                           Margin="0,5"/>
+
+                    <Entry x:Name="ItemDescriptionEntry" 
+                           Placeholder="Opis"
+                           BackgroundColor="#f5f5f5"
+                           Margin="0,5"/>
+
+                    <Entry x:Name="ItemPriceEntry" 
+                           Placeholder="Cijena"
+                           Keyboard="Numeric"
+                           BackgroundColor="#f5f5f5"
+                           Margin="0,5"/>
+
+                    <Picker x:Name="CategoryPicker"
+                            Title="Odaberi kategoriju"
+                            BackgroundColor="#f5f5f5"
+                            Margin="0,5">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Pizza</x:String>
+                                <x:String>Burgeri</x:String>
+                                <x:String>Tjestenina</x:String>
+                                <x:String>Salate</x:String>
+                                <x:String>Pića</x:String>
+                                <x:String>Deserti</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Button Text="Sačuvaj stavku" 
+                            Clicked="AddOrUpdateItemButton_Clicked" 
+                            BackgroundColor="#D18588"
+                            TextColor="White"
+                            CornerRadius="5"
+                            Margin="0,10"/>
+                </StackLayout>
+            </Frame>
+
+            <!-- Lista Stavki Menija -->
+            <Label Text="Trenutne Stavke Menija" 
+                   FontSize="20" 
+                   TextColor="#D18588" 
+                   FontAttributes="Bold"
+                   Margin="0,0,0,10"/>
+
+            <CollectionView x:Name="ItemsCollectionView" 
+                           EmptyView="Nema dostupnih stavki u meniju">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#D18588" 
+                               CornerRadius="10" 
+                               Padding="15" 
+                               BackgroundColor="White">
+                            <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                                <Label Text="{Binding Name}" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold"
+                                       Grid.Column="0"
+                                       Grid.Row="0"/>
+
+                                <Label Text="{Binding Category}" 
+                                       FontSize="14"
+                                       TextColor="Gray"
+                                       Grid.Column="0"
+                                       Grid.Row="1"/>
+
+                                <Label Text="{Binding Description}" 
+                                       FontSize="14"
+                                       Grid.Column="0"
+                                       Grid.Row="2"/>
+
+                                <Label Text="{Binding Price, StringFormat='{0:C}'}" 
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       Grid.Column="0"
+                                       Grid.Row="3"/>
+
+                                <StackLayout Grid.Column="1" 
+                                           Grid.RowSpan="4" 
+                                           Spacing="5" 
+                                           VerticalOptions="Center">
+                                    <Button Text="Uredi" 
+                                            CommandParameter="{Binding .}"
+                                            Clicked="UpdateItemButton_Clicked"
+                                            BackgroundColor="#D18588"
+                                            TextColor="White"
+                                            HeightRequest="40"
+                                            CornerRadius="5"/>
+
+                                    <Button Text="Obriši" 
+                                            CommandParameter="{Binding Id}"
+                                            Clicked="DeleteItemButton_Clicked"
+                                            BackgroundColor="#ff4444"
+                                            TextColor="White"
+                                            HeightRequest="40"
+                                            CornerRadius="5"/>
                                 </StackLayout>
-                            </StackLayout>
-                            <StackLayout Orientation="Vertical" HorizontalOptions="End" Padding="5">
-                                <Button Text="Ažuriraj" FontSize="12" CommandParameter="{Binding .}" Clicked="UpdateItemButton_Clicked" BackgroundColor="#D18588" />
-                                <Button Text="Obriši" FontSize="12" CommandParameter="{Binding Id}" Clicked="DeleteItemButton_Clicked" BackgroundColor="#D18588" />
-                            </StackLayout>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
