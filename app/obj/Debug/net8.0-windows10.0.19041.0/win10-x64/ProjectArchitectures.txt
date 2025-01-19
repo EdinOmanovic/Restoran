@@ -1,1 +1,1 @@
-C:\Users\LENOVO\source\repos\app\app\app.csproj;x64
+C:\Users\vedad\Restoran\app\app.csproj;x64

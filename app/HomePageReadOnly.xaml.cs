@@ -15,6 +15,7 @@ namespace app
         {
             InitializeComponent();
             InitializeDatabase();
+            UpdateTableNames();
             LoadTables();
 
             // Initialize commands
@@ -36,7 +37,7 @@ namespace app
                 {
                     _database.Insert(new Table
                     {
-                        TableNumber = $"Table {i}",
+                        TableNumber = $"Stol {i}",
                         IsAvailable = true
                     });
                 }
@@ -62,7 +63,7 @@ namespace app
             }
             else
             {
-                await DisplayAlert("Info", "This table is already occupied", "OK");
+                await DisplayAlert("Info", "Ovaj stol je veæ zauzet", "OK");
             }
         }
 
@@ -70,9 +71,9 @@ namespace app
         {
             if (!table.IsAvailable)
             {
-                bool confirm = await DisplayAlert("Clear Table",
-                    $"Are you sure you want to clear {table.TableNumber}?",
-                    "Yes", "No");
+                bool confirm = await DisplayAlert("Oèisti stol",
+                    $"Da li sigurno želite oèistiti narudžbu : {table.TableNumber}?",
+                    "Da", "Ne");
 
                 if (confirm)
                 {
@@ -83,22 +84,46 @@ namespace app
                     // Refresh the tables list
                     LoadTables();
 
-                    await DisplayAlert("Success", $"{table.TableNumber} has been cleared", "OK");
+                    await DisplayAlert("Uspjeh", $"{table.TableNumber} je oèisæena", "OK");
                 }
             }
             else
             {
-                await DisplayAlert("Info", "This table is already available", "OK");
+                await DisplayAlert("Info", "Ovaj stol je veæ slobodan", "OK");
             }
         }
+        private void UpdateTableNames()
+        {
+            try
+            {
+                // Get all tables with "Table" prefix
+                var tablesToUpdate = _database.Table<Table>()
+                    .Where(t => t.TableNumber.StartsWith("Table"))
+                    .ToList();
 
+                foreach (var table in tablesToUpdate)
+                {
+                    // Replace "Table" with "Stol" in the table number
+                    string newTableNumber = table.TableNumber.Replace("Table", "Stol");
+
+                    // Update the table number
+                    _database.Execute(
+                        "UPDATE Table SET TableNumber = ? WHERE Id = ?",
+                        newTableNumber, table.Id);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating table names: {ex.Message}");
+            }
+        }
         public class Table
         {
             [PrimaryKey, AutoIncrement]
             public int Id { get; set; }
             public string TableNumber { get; set; }
             public bool IsAvailable { get; set; }
-            public string Status => IsAvailable ? "Available" : "Occupied";
+            public string Status => IsAvailable ? "Slobodno" : "Zauzeto";
             public string StatusColor => IsAvailable ? "Green" : "Red";
             public string ImageUrl { get; set; } = "table.png";
         }

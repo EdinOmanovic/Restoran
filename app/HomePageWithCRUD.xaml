@@ -6,14 +6,14 @@
              BackgroundImageSource="back.jpg"
              Padding="0">
     <StackLayout Padding="20">
-        <Entry x:Name="ItemNameEntry" Placeholder="Item Name" />
-        <Entry x:Name="ItemDescriptionEntry" Placeholder="Item Description" />
-        <Entry x:Name="ItemPriceEntry" Placeholder="Price" Keyboard="Numeric" />
-        <Entry x:Name="ItemImageUrlEntry" Placeholder="Image URL" />
-        <Entry x:Name="ItemCategoryEntry" Placeholder="Category" />
+        <Entry x:Name="ItemNameEntry" Placeholder="Naziv stavke" />
+        <Entry x:Name="ItemDescriptionEntry" Placeholder="Opis stavke" />
+        <Entry x:Name="ItemPriceEntry" Placeholder="Cijena" Keyboard="Numeric" />
+        <Entry x:Name="ItemImageUrlEntry" Placeholder="URL slike" />
+        <Entry x:Name="ItemCategoryEntry" Placeholder="Kaetgorija" />
         <!-- Novo polje za kategoriju -->
 
-        <Button Text="Add/Update Item" Clicked="AddOrUpdateItemButton_Clicked" BackgroundColor="#D18588" />
+        <Button Text="Dodaj/Ažuriraj stavku" Clicked="AddOrUpdateItemButton_Clicked" BackgroundColor="#D18588" />
 
         <ListView x:Name="ItemsListView" HasUnevenRows="True">
             <ListView.ItemTemplate>
@@ -31,8 +31,8 @@
                                 </StackLayout>
                             </StackLayout>
                             <StackLayout Orientation="Vertical" HorizontalOptions="End" Padding="5">
-                                <Button Text="Update" FontSize="12" CommandParameter="{Binding .}" Clicked="UpdateItemButton_Clicked" BackgroundColor="#D18588" />
-                                <Button Text="Delete" FontSize="12" CommandParameter="{Binding Id}" Clicked="DeleteItemButton_Clicked" BackgroundColor="#D18588" />
+                                <Button Text="Ažuriraj" FontSize="12" CommandParameter="{Binding .}" Clicked="UpdateItemButton_Clicked" BackgroundColor="#D18588" />
+                                <Button Text="Obriši" FontSize="12" CommandParameter="{Binding Id}" Clicked="DeleteItemButton_Clicked" BackgroundColor="#D18588" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

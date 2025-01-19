@@ -226,7 +226,7 @@ public partial class OrderPage : ContentPage
         }
         else
         {
-            DisplayAlert("Error", "Please select an item and enter a valid quantity", "OK");
+            DisplayAlert("Error", "Molimo izaberite validnu stavku i unesite koliËinu brojËano!", "OK");
         }
     }
 
@@ -244,20 +244,20 @@ public partial class OrderPage : ContentPage
     private void UpdateTotal()
     {
         _totalAmount = _orderItems.Sum(item => item.Price * item.Quantity);
-        TotalLabel.Text = $"Total: ${_totalAmount:F2}";
+        TotalLabel.Text = $"Ukupno ${_totalAmount:F2}";
     }
 
     private async void OnCompleteOrderClicked(object sender, EventArgs e)
     {
         if (!_orderItems.Any())
         {
-            await DisplayAlert("Error", "Please add items to the order first", "OK");
+            await DisplayAlert("Error", "Molimo prvo dodajte stavke u narudûbu", "OK");
             return;
         }
 
-        bool confirm = await DisplayAlert("Confirm Order",
-            $"Total amount: ${_totalAmount:F2}\nDo you want to complete this order?",
-            "Yes", "No");
+        bool confirm = await DisplayAlert("Potvrdi narudûbu",
+            $"Ukupna cijena: ${_totalAmount:F2}\néelite li zavröiti narudûbu",
+            "Da", "Ne");
 
         if (confirm)
         {
@@ -291,12 +291,12 @@ public partial class OrderPage : ContentPage
                     _database.Insert(newTable);
                 }
 
-                await DisplayAlert("Success", "Order completed successfully!", "OK");
+                await DisplayAlert("Uspjeh", "Narudûba uspjeöno kreirana", "OK");
                 await Navigation.PopAsync();
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", $"Failed to complete order: {ex.Message}", "OK");
+                await DisplayAlert("Error", $"Greöka pri kreiranju narudûbe : {ex.Message}", "OK");
             }
         }
     }

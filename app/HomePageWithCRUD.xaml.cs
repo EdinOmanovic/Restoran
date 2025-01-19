@@ -35,7 +35,7 @@ namespace app
                 var pizzaItem = new Item
                 {
                     Name = "Stol 1",
-                    Description = "Srenji",
+                    Description = "Srednji",
                     Price = 0,
                     ImageUrl = "stp.png",
                     Category = "Pizza"

@@ -12,7 +12,7 @@
                Margin="0,0,0,20"
                CornerRadius="15">
             <VerticalStackLayout Spacing="10">
-                <Label Text="Table Order" 
+                <Label Text="Narudžba za stol" 
                        FontSize="28" 
                        FontAttributes="Bold" 
                        TextColor="White"
@@ -21,7 +21,7 @@
                        FontSize="22" 
                        TextColor="White"
                        HorizontalOptions="Center"/>
-                <Label Text="Create Your Order"
+                <Label Text="Kreiraj svoju narudžbu"
                        FontSize="16"
                        TextColor="White"
                        HorizontalOptions="Center"/>
@@ -37,7 +37,7 @@
                        CornerRadius="15"
                        BorderColor="#D18588">
                     <VerticalStackLayout Spacing="15">
-                        <Label Text="Add Menu Items" 
+                        <Label Text="Dodaj stavke iz menija" 
                                FontSize="20" 
                                FontAttributes="Bold"
                                TextColor="#D18588"/>
@@ -46,7 +46,7 @@
                                BorderColor="#D18588" 
                                CornerRadius="10">
                             <Picker x:Name="MenuItemPicker" 
-                                    Title="Select Menu Item"
+                                    Title="Odaberi stavku iz menija"
                                     TextColor="#333333"/>
                         </Frame>
 
@@ -54,12 +54,12 @@
                                BorderColor="#D18588" 
                                CornerRadius="10">
                             <Entry x:Name="QuantityEntry" 
-                                   Placeholder="Enter Quantity" 
+                                   Placeholder="Unesi količinu" 
                                    Keyboard="Numeric"
                                    TextColor="#333333"/>
                         </Frame>
 
-                        <Button Text="Add to Order" 
+                        <Button Text="Dodaj na narudžbu" 
                                 Clicked="OnAddToOrderClicked"
                                 BackgroundColor="#D18588"
                                 TextColor="White"
@@ -75,7 +75,7 @@
                        CornerRadius="15"
                        BorderColor="#D18588">
                     <VerticalStackLayout Spacing="15">
-                        <Label Text="Current Order" 
+                        <Label Text="Trenutna narudžba" 
                                FontSize="20" 
                                FontAttributes="Bold"
                                TextColor="#D18588"/>
@@ -101,7 +101,7 @@
                                                 <Label Text="{Binding Quantity}" 
                                                        Grid.Column="2"
                                                        VerticalOptions="Center"/>
-                                                <Button Text="Remove" 
+                                                <Button Text="Ukloni" 
                                                         Grid.Column="3"
                                                         BackgroundColor="#D18588"
                                                         TextColor="White"
@@ -133,7 +133,7 @@
 
         <!-- Complete Order Button -->
         <Button Grid.Row="2" 
-                Text="Complete Order" 
+                Text="Završi narudžbu" 
                 Clicked="OnCompleteOrderClicked"
                 BackgroundColor="#D18588"
                 TextColor="White"
