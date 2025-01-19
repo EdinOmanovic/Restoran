@@ -36076,11 +36076,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\omano\\Desktop\\Rma1\\app\\app.csproj",
+      "projectUniqueName": "C:\\Users\\omano\\Desktop\\apppi\\app\\app.csproj",
       "projectName": "app",
-      "projectPath": "C:\\Users\\omano\\Desktop\\Rma1\\app\\app.csproj",
+      "projectPath": "C:\\Users\\omano\\Desktop\\apppi\\app\\app.csproj",
       "packagesPath": "C:\\Users\\omano\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\omano\\Desktop\\Rma1\\app\\obj\\",
+      "outputPath": "C:\\Users\\omano\\Desktop\\apppi\\app\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [

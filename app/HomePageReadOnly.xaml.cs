@@ -37,19 +37,7 @@ namespace app
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "app.db3");
             _database = new SQLiteConnection(dbPath);
             _database.CreateTable<Table>();
-            _database.CreateTable<OrderPage.OrderItem>(); // Dodajemo i OrderItem tabelu
-
-            if (!_database.Table<Table>().Any())
-            {
-                for (int i = 1; i <= 6; i++)
-                {
-                    _database.Insert(new Table
-                    {
-                        TableNumber = $"Stol {i}",
-                        IsAvailable = true
-                    });
-                }
-            }
+            _database.CreateTable<OrderPage.OrderItem>();
         }
 
         private void LoadTables()
@@ -103,33 +91,34 @@ namespace app
             if (!table.IsAvailable)
             {
                 bool confirm = await DisplayAlert("O?isti stol",
-                    $"Da li sigurno želite o?istiti stol: {table.TableNumber}? Sve narudžbe za ovaj stol ?e biti obrisane.",
+                    $"Da li sigurno želite o?istiti stol: {table.TableNumber}?",
                     "Da", "Ne");
 
                 if (confirm)
                 {
                     try
                     {
-                        // Dohvati broj stola
+                        // Get table number
                         int tableNumber = int.Parse(table.TableNumber.Replace("Stol ", ""));
 
-                        // Obriši sve narudžbe za ovaj stol
+                        // Mark all orders for this table as completed instead of deleting them
                         var orderItems = _database.Table<OrderPage.OrderItem>()
-                            .Where(o => o.TableNumber == tableNumber)
+                            .Where(o => o.TableNumber == tableNumber && !o.IsCompleted)
                             .ToList();
 
                         foreach (var orderItem in orderItems)
                         {
-                            _database.Delete<OrderPage.OrderItem>(orderItem.Id);
+                            orderItem.IsCompleted = true;
+                            _database.Update(orderItem);
                         }
 
-                        // Ažuriraj status stola
+                        // Update table status
                         table.IsAvailable = true;
                         _database.Update(table);
                         LoadTables();
 
                         await DisplayAlert("Uspjeh",
-                            $"{table.TableNumber} je o?iš?en i sve narudžbe su obrisane",
+                            $"{table.TableNumber} je o?iš?en",
                             "OK");
                     }
                     catch (Exception ex)

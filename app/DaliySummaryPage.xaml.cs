@@ -30,18 +30,18 @@ public partial class DailySummaryPage : ContentPage
         var startDate = date.Date;
         var endDate = startDate.AddDays(1);
 
-        // Get all orders for the selected date
+        // Get all orders for the selected date, including completed ones
         var orders = _database.Table<OrderPage.OrderItem>()
             .Where(o => o.OrderTime >= startDate && o.OrderTime < endDate)
             .ToList();
 
-        // Group orders by table and order time to get unique orders
+        // Group orders by table and order group ID to get unique orders
         var orderSummaries = orders
-            .GroupBy(o => new { o.TableNumber, o.OrderTime })
+            .GroupBy(o => new { o.TableNumber, o.OrderGroupId })
             .Select(g => new OrderSummary
             {
                 TableNumber = g.Key.TableNumber,
-                OrderTime = g.Key.OrderTime,
+                OrderTime = g.First().OrderTime,
                 TotalAmount = g.Sum(o => o.Price * o.Quantity)
             })
             .OrderByDescending(o => o.OrderTime)

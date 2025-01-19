@@ -1,73 +1,73 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\omano\\Desktop\\Rma1\\",
+  "WorkspaceRootPath": "C:\\Users\\omano\\Desktop\\apppi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\homepagereadonly.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagereadonly.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\homepagewithcrud.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagewithcrud.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\orderdetails.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\orderdetails.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderdetails.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\orderdetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderdetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\homepagewithcrud.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagewithcrud.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\daliysummarypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\daliysummarypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\daliysummarypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\daliysummarypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\daliysummarypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\homepagewithcrud.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\homepagereadonly.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagereadonly.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\daliysummarypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\daliysummarypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\orderdetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderdetails.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\homepagewithcrud.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagewithcrud.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\homepagereadonly.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\homepagereadonly.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\homepagereadonly.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\app.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\app.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\app.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\orderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\orderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\orderpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\converter\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\converter\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\converter\\inverseboolconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\rma1\\app\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|c:\\users\\omano\\desktop\\apppi\\app\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F499A4DC-B2D0-4DF5-A0FE-910D32E19FEB}|app\\app.csproj|solutionrelative:app\\loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -87,12 +87,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "OrderDetails.xaml",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderDetails.xaml",
+              "RelativeDocumentMoniker": "app\\OrderDetails.xaml",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderDetails.xaml",
+              "RelativeToolTip": "app\\OrderDetails.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-19T02:42:21.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "HomePageReadOnly.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageReadOnly.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageReadOnly.xaml.cs",
               "RelativeDocumentMoniker": "app\\HomePageReadOnly.xaml.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageReadOnly.xaml.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageReadOnly.xaml.cs",
               "RelativeToolTip": "app\\HomePageReadOnly.xaml.cs",
-              "ViewState": "AgIAAIYAAAAAAAAAAAAwwLsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAiwLAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T18:05:31.317Z",
               "EditorCaption": ""
@@ -101,11 +114,11 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "DaliySummaryPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\DaliySummaryPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\DaliySummaryPage.xaml.cs",
               "RelativeDocumentMoniker": "app\\DaliySummaryPage.xaml.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\DaliySummaryPage.xaml.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\DaliySummaryPage.xaml.cs",
               "RelativeToolTip": "app\\DaliySummaryPage.xaml.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAiwFgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T17:39:27.621Z",
               "EditorCaption": ""
@@ -114,35 +127,35 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "HomePageWithCRUD.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageWithCRUD.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageWithCRUD.xaml.cs",
               "RelativeDocumentMoniker": "app\\HomePageWithCRUD.xaml.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageWithCRUD.xaml.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageWithCRUD.xaml.cs",
               "RelativeToolTip": "app\\HomePageWithCRUD.xaml.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAzwBsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T01:47:06.989Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "OrderPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderPage.xaml.cs",
               "RelativeDocumentMoniker": "app\\OrderPage.xaml.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderPage.xaml.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderPage.xaml.cs",
               "RelativeToolTip": "app\\OrderPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAuwNcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-17T21:44:49.042Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "DaliySummaryPage.xaml",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\DaliySummaryPage.xaml",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\DaliySummaryPage.xaml",
               "RelativeDocumentMoniker": "app\\DaliySummaryPage.xaml",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\DaliySummaryPage.xaml",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\DaliySummaryPage.xaml",
               "RelativeToolTip": "app\\DaliySummaryPage.xaml",
               "ViewState": "AgIAADIAAAAAMzMzMzMbwFoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -151,37 +164,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderDetails.xaml",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderDetails.xaml",
-              "RelativeDocumentMoniker": "app\\OrderDetails.xaml",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderDetails.xaml",
-              "RelativeToolTip": "app\\OrderDetails.xaml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAEIAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-01-19T02:42:21.444Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "OrderDetails.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderDetails.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderDetails.xaml.cs",
               "RelativeDocumentMoniker": "app\\OrderDetails.xaml.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderDetails.xaml.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderDetails.xaml.cs",
               "RelativeToolTip": "app\\OrderDetails.xaml.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAA1wEcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T02:43:00.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-19T02:43:00.305Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "HomePageWithCRUD.xaml",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageWithCRUD.xaml",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageWithCRUD.xaml",
               "RelativeDocumentMoniker": "app\\HomePageWithCRUD.xaml",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageWithCRUD.xaml",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageWithCRUD.xaml",
               "RelativeToolTip": "app\\HomePageWithCRUD.xaml",
               "ViewState": "AgIAAHMAAAAAAAAAAAAAAIUAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -191,9 +190,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "OrderItem.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderItem.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderItem.cs",
               "RelativeDocumentMoniker": "app\\OrderItem.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderItem.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderItem.cs",
               "RelativeToolTip": "app\\OrderItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -203,9 +202,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "HomePageReadOnly.xaml",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageReadOnly.xaml",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageReadOnly.xaml",
               "RelativeDocumentMoniker": "app\\HomePageReadOnly.xaml",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\HomePageReadOnly.xaml",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\HomePageReadOnly.xaml",
               "RelativeToolTip": "app\\HomePageReadOnly.xaml",
               "ViewState": "AgIAABIAAAAAAAAAAAAAACcAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -215,9 +214,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "app\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\Properties\\launchSettings.json",
               "RelativeToolTip": "app\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -227,9 +226,9 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "app",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\app.csproj",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\app.csproj",
               "RelativeDocumentMoniker": "app\\app.csproj",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\app.csproj",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\app.csproj",
               "RelativeToolTip": "app\\app.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-01-19T02:12:55.006Z"
@@ -238,9 +237,9 @@
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "OrderPage.xaml",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderPage.xaml",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderPage.xaml",
               "RelativeDocumentMoniker": "app\\OrderPage.xaml",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\OrderPage.xaml",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\OrderPage.xaml",
               "RelativeToolTip": "app\\OrderPage.xaml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -250,9 +249,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "InverseBoolConverter.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\Converter\\InverseBoolConverter.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\Converter\\InverseBoolConverter.cs",
               "RelativeDocumentMoniker": "app\\Converter\\InverseBoolConverter.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\Converter\\InverseBoolConverter.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\Converter\\InverseBoolConverter.cs",
               "RelativeToolTip": "app\\Converter\\InverseBoolConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -262,9 +261,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\App.xaml",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\App.xaml",
               "RelativeDocumentMoniker": "app\\App.xaml",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\App.xaml",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\App.xaml",
               "RelativeToolTip": "app\\App.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
@@ -274,9 +273,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "LoginPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\LoginPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\LoginPage.xaml.cs",
               "RelativeDocumentMoniker": "app\\LoginPage.xaml.cs",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\LoginPage.xaml.cs",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\LoginPage.xaml.cs",
               "RelativeToolTip": "app\\LoginPage.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -286,9 +285,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "LoginPage.xaml",
-              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\Rma1\\app\\LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\omano\\Desktop\\apppi\\app\\LoginPage.xaml",
               "RelativeDocumentMoniker": "app\\LoginPage.xaml",
-              "ToolTip": "C:\\Users\\omano\\Desktop\\Rma1\\app\\LoginPage.xaml",
+              "ToolTip": "C:\\Users\\omano\\Desktop\\apppi\\app\\LoginPage.xaml",
               "RelativeToolTip": "app\\LoginPage.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
