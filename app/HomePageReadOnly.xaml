@@ -4,7 +4,7 @@
              xmlns:converters="clr-namespace:app.Converters"
              x:Class="app.HomePageReadOnly"
              Title="USER"
-             BackgroundImageSource="back.jpg"
+             BackgroundColor="#151522"
              Padding="0"
              x:Name="MainPage">
 
@@ -12,44 +12,95 @@
         <converters:InverseBoolConverter x:Key="InverseBoolConverter"/>
     </ContentPage.Resources>
 
-    <CollectionView ItemsSource="{Binding Tables}" SelectionMode="None">
-        <CollectionView.ItemsLayout>
-            <GridItemsLayout Orientation="Vertical" Span="2" />
-        </CollectionView.ItemsLayout>
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame BorderColor="LightGray" CornerRadius="8" Padding="10" Margin="5">
-                    <StackLayout>
-                        <Image Source="sto.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" />
-                        <Label Text="{Binding TableNumber}" FontSize="16" HorizontalOptions="Center" />
-                        <Label Text="{Binding Status}" FontSize="14" HorizontalOptions="Center" TextColor="{Binding StatusColor}" />
-                        <Button Text="Naruci" 
-                                IsVisible="{Binding IsAvailable}" 
-                                Command="{Binding Source={x:Reference MainPage}, Path=OrderCommand}"
-                                CommandParameter="{Binding .}"
-                                BackgroundColor="#D18588"
-                                TextColor="White"
-                                CornerRadius="5"
-                                Margin="0,5,0,0"/>
-                        <Button Text="Pregledaj Detalje" 
-                                IsVisible="{Binding IsAvailable, Converter={StaticResource InverseBoolConverter}}"
-                                Command="{Binding Source={x:Reference MainPage}, Path=ViewDetailsCommand}"
-                                CommandParameter="{Binding .}"
-                                BackgroundColor="#2196F3"
-                                TextColor="White"
-                                CornerRadius="5"
-                                Margin="0,5,0,0"/>
-                        <Button Text="Oslobodi sto" 
-                                IsVisible="{Binding IsAvailable, Converter={StaticResource InverseBoolConverter}}"
-                                Command="{Binding Source={x:Reference MainPage}, Path=ClearTableCommand}"
-                                CommandParameter="{Binding .}"
-                                BackgroundColor="#4CAF50"
-                                TextColor="White"
-                                CornerRadius="5"
-                                Margin="0,5,0,0"/>
-                    </StackLayout>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Margin="0,20,0,30">
+            <Label Text="Tables Overview"
+                   TextColor="White"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start"/>
+            <Label Text="Select a table to manage orders"
+                   TextColor="#666676"
+                   FontSize="16"
+                   HorizontalOptions="Start"/>
+        </VerticalStackLayout>
+
+        <!-- Tables Grid -->
+        <CollectionView Grid.Row="1" 
+                       ItemsSource="{Binding Tables}" 
+                       SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" 
+                                Span="2" 
+                                HorizontalItemSpacing="15"
+                                VerticalItemSpacing="15"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#252535" 
+                           BorderColor="Transparent" 
+                           CornerRadius="15" 
+                           Padding="15" 
+                           Margin="0">
+                        <VerticalStackLayout Spacing="10">
+                            <!-- Table Image -->
+                            <Frame CornerRadius="12"
+                                   HeightRequest="120"
+                                   Padding="0"
+                                   IsClippedToBounds="True"
+                                   BackgroundColor="#1A1A2E"
+                                   BorderColor="Transparent">
+                                <Image Source="sto.png" 
+                                       Aspect="AspectFit"
+                                       HorizontalOptions="Center" />
+                            </Frame>
+
+                            <!-- Table Info -->
+                            <Label Text="{Binding TableNumber}" 
+                                   FontSize="20" 
+                                   FontAttributes="Bold"
+                                   TextColor="White"
+                                   HorizontalOptions="Center" />
+                            <Label Text="{Binding Status}" 
+                                   FontSize="16" 
+                                   HorizontalOptions="Center" 
+                                   TextColor="{Binding StatusColor}" />
+
+                            <!-- Action Buttons -->
+                            <Button Text="Naruci" 
+                                    IsVisible="{Binding IsAvailable}" 
+                                    Command="{Binding Source={x:Reference MainPage}, Path=OrderCommand}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#FF4B55"
+                                    TextColor="White"
+                                    CornerRadius="25"
+                                    HeightRequest="40"
+                                    Margin="0,5,0,0"/>
+
+                            <Button Text="Pregledaj Detalje" 
+                                    IsVisible="{Binding IsAvailable, Converter={StaticResource InverseBoolConverter}}"
+                                    Command="{Binding Source={x:Reference MainPage}, Path=ViewDetailsCommand}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#252545"
+                                    TextColor="White"
+                                    CornerRadius="25"
+                                    HeightRequest="40"
+                                    Margin="0,5,0,0"/>
+
+                            <Button Text="Oslobodi stol" 
+                                    IsVisible="{Binding IsAvailable, Converter={StaticResource InverseBoolConverter}}"
+                                    Command="{Binding Source={x:Reference MainPage}, Path=ClearTableCommand}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#252545"
+                                    TextColor="#4CAF50"
+                                    CornerRadius="25"
+                                    HeightRequest="40"
+                                    Margin="0,5,0,0"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

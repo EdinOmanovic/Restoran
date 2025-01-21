@@ -2,127 +2,179 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="app.HomePageWithCRUD"
-             Title="Upravljanje Menijem"
-             BackgroundImageSource="back.jpg">
+             Title="PTF Menu"
+             BackgroundColor="#121212">
     <ScrollView>
         <StackLayout Padding="20">
-            <!-- Dnevni Prihod Dugme -->
-            <Button Text="Pregledaj Dnevni Prihod" 
+            
+            
+
+            <!-- Daily Revenue Button -->
+            <Button Text="Dnevni obračun prihoda" 
                     Clicked="ViewDailyRevenue_Clicked"
-                    BackgroundColor="#D18588"
+                    BackgroundColor="#FF4B55"
                     TextColor="White"
                     FontAttributes="Bold"
                     HeightRequest="50"
-                    CornerRadius="10"
+                    CornerRadius="25"
                     Margin="0,0,0,20"/>
 
-            <!-- Dodaj/Uredi Stavku Sekcija -->
-            <Frame BackgroundColor="White" Padding="15" CornerRadius="10" Margin="0,0,0,20">
-                <StackLayout Spacing="10">
-                    <Label Text="Dodaj/Uredi Stavku Menija" FontSize="20" TextColor="#D18588" FontAttributes="Bold"/>
+            
+            <Frame BackgroundColor="#1E1E1E"
+                   Padding="15"
+                   CornerRadius="25"
+                   BorderColor="Transparent"
+                   Margin="0,0,0,20">
+                <Grid ColumnDefinitions="*, Auto">
+                    <Entry Placeholder="Pretraži stavke s menija..."
+                           PlaceholderColor="#666666"
+                           TextColor="White"
+                           BackgroundColor="Transparent"/>
+                    <Image Source="search_icon.png"
+                           HeightRequest="20"
+                           Grid.Column="1"/>
+                </Grid>
+            </Frame>
+
+            
+            <Frame BackgroundColor="#1E1E1E"
+                   Padding="20"
+                   CornerRadius="15"
+                   BorderColor="Transparent"
+                   Margin="0,0,0,20">
+                <StackLayout Spacing="15">
+                    <Label Text="Dodaj/Uredi stavku"
+                           FontSize="20"
+                           TextColor="#FF4B55"
+                           FontAttributes="Bold"/>
 
                     <Entry x:Name="ItemNameEntry" 
-                           Placeholder="Naziv stavke"
-                           BackgroundColor="#f5f5f5"
+                           Placeholder="Ime stavke"
+                           PlaceholderColor="#666666"
+                           TextColor="White"
+                           BackgroundColor="#2D2D2D"
                            Margin="0,5"/>
 
                     <Entry x:Name="ItemDescriptionEntry" 
                            Placeholder="Opis"
-                           BackgroundColor="#f5f5f5"
+                           PlaceholderColor="#666666"
+                           TextColor="White"
+                           BackgroundColor="#2D2D2D"
                            Margin="0,5"/>
 
                     <Entry x:Name="ItemPriceEntry" 
                            Placeholder="Cijena"
                            Keyboard="Numeric"
-                           BackgroundColor="#f5f5f5"
+                           PlaceholderColor="#666666"
+                           TextColor="White"
+                           BackgroundColor="#2D2D2D"
                            Margin="0,5"/>
 
                     <Picker x:Name="CategoryPicker"
                             Title="Odaberi kategoriju"
-                            BackgroundColor="#f5f5f5"
-                            Margin="0,5">
+                            TitleColor="#666666"
+                            TextColor="White"
+                            BackgroundColor="#2D2D2D">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>Pizza</x:String>
-                                <x:String>Burgeri</x:String>
-                                <x:String>Tjestenina</x:String>
-                                <x:String>Salate</x:String>
-                                <x:String>Pića</x:String>
-                                <x:String>Deserti</x:String>
+                                <x:String>Burgers</x:String>
+                                <x:String>Pasta</x:String>
+                                <x:String>Salads</x:String>
+                                <x:String>Drinks</x:String>
+                                <x:String>Desserts</x:String>
                             </x:Array>
                         </Picker.ItemsSource>
                     </Picker>
 
-                    <Button Text="Sačuvaj stavku" 
+                    <Button Text="Spasi stavku" 
                             Clicked="AddOrUpdateItemButton_Clicked" 
-                            BackgroundColor="#D18588"
+                            BackgroundColor="#FF4B55"
                             TextColor="White"
-                            CornerRadius="5"
+                            CornerRadius="25"
+                            HeightRequest="45"
                             Margin="0,10"/>
                 </StackLayout>
             </Frame>
 
-            <!-- Lista Stavki Menija -->
-            <Label Text="Trenutne Stavke Menija" 
+            <!-- Menu Items List -->
+            <Label Text="Trenutne stavke menija" 
                    FontSize="20" 
-                   TextColor="#D18588" 
+                   TextColor="#FF4B55" 
                    FontAttributes="Bold"
-                   Margin="0,0,0,10"/>
+                   Margin="0,0,0,15"/>
 
             <CollectionView x:Name="ItemsCollectionView" 
-                           EmptyView="Nema dostupnih stavki u meniju">
+                           EmptyView="Nema dosttupnih stavki">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BorderColor="#D18588" 
-                               CornerRadius="10" 
-                               Padding="15" 
-                               BackgroundColor="White">
-                            <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                        <Frame BackgroundColor="#1E1E1E"
+                               CornerRadius="15"
+                               Padding="15"
+                               BorderColor="Transparent">
+                            <Grid ColumnDefinitions="Auto, *, Auto" 
+                                  RowDefinitions="Auto,Auto,Auto"
+                                  RowSpacing="8">
+                                <!-- Food Image -->
+                                <Frame Grid.RowSpan="3"
+                                       CornerRadius="10"
+                                       HeightRequest="80"
+                                       WidthRequest="80"
+                                       Padding="0"
+                                       IsClippedToBounds="True">
+                                    <Image Aspect="AspectFill"
+                                           Source="food_placeholder.png"/>
+                                </Frame>
+
+                                <!-- Item Details -->
                                 <Label Text="{Binding Name}" 
                                        FontSize="18" 
                                        FontAttributes="Bold"
-                                       Grid.Column="0"
-                                       Grid.Row="0"/>
+                                       TextColor="White"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       Margin="15,0,0,0"/>
 
                                 <Label Text="{Binding Category}" 
                                        FontSize="14"
-                                       TextColor="Gray"
-                                       Grid.Column="0"
-                                       Grid.Row="1"/>
+                                       TextColor="#666666"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       Margin="15,0,0,0"/>
 
-                                <Label Text="{Binding Description}" 
-                                       FontSize="14"
-                                       Grid.Column="0"
-                                       Grid.Row="2"/>
-
-                                <Label Text="{Binding Price, StringFormat='{0:C}'}" 
+                                <Label Text="{Binding Price, StringFormat='${0:F2}'}" 
                                        FontSize="16"
                                        FontAttributes="Bold"
-                                       Grid.Column="0"
-                                       Grid.Row="3"/>
+                                       TextColor="#FF4B55"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       Margin="15,0,0,0"/>
 
-                                <StackLayout Grid.Column="1" 
-                                           Grid.RowSpan="4" 
-                                           Spacing="5" 
+                                <!-- Action Buttons -->
+                                <StackLayout Grid.Column="2" 
+                                           Grid.RowSpan="3" 
+                                           Spacing="8" 
                                            VerticalOptions="Center">
                                     <Button Text="Uredi" 
                                             CommandParameter="{Binding .}"
                                             Clicked="UpdateItemButton_Clicked"
-                                            BackgroundColor="#D18588"
+                                            BackgroundColor="#FF4B55"
                                             TextColor="White"
-                                            HeightRequest="40"
-                                            CornerRadius="5"/>
+                                            HeightRequest="35"
+                                            CornerRadius="17"
+                                            Padding="20,0"/>
 
                                     <Button Text="Obriši" 
                                             CommandParameter="{Binding Id}"
                                             Clicked="DeleteItemButton_Clicked"
-                                            BackgroundColor="#ff4444"
-                                            TextColor="White"
-                                            HeightRequest="40"
-                                            CornerRadius="5"/>
+                                            BackgroundColor="#2D2D2D"
+                                            TextColor="#FF4B55"
+                                            HeightRequest="35"
+                                            CornerRadius="17"
+                                            Padding="20,0"/>
                                 </StackLayout>
                             </Grid>
                         </Frame>

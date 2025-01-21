@@ -12,85 +12,85 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = app
-build_property.ProjectDir = C:\Users\omano\Desktop\apppi\app\
+build_property.ProjectDir = C:\Users\vedad\Restoran\app\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/omano/Desktop/apppi/app/App.xaml]
+[C:/Users/vedad/Restoran/app/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/omano/Desktop/apppi/app/AppShell.xaml]
+[C:/Users/vedad/Restoran/app/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/omano/Desktop/apppi/app/DaliySummaryPage.xaml]
+[C:/Users/vedad/Restoran/app/DaliySummaryPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.DaliySummaryPage.xaml
 build_metadata.AdditionalFiles.TargetPath = DaliySummaryPage.xaml
 build_metadata.AdditionalFiles.RelativePath = DaliySummaryPage.xaml
 
-[C:/Users/omano/Desktop/apppi/app/HomePage.xaml]
+[C:/Users/vedad/Restoran/app/HomePage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.HomePage.xaml
 build_metadata.AdditionalFiles.TargetPath = HomePage.xaml
 build_metadata.AdditionalFiles.RelativePath = HomePage.xaml
 
-[C:/Users/omano/Desktop/apppi/app/HomePageReadOnly.xaml]
+[C:/Users/vedad/Restoran/app/HomePageReadOnly.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.HomePageReadOnly.xaml
 build_metadata.AdditionalFiles.TargetPath = HomePageReadOnly.xaml
 build_metadata.AdditionalFiles.RelativePath = HomePageReadOnly.xaml
 
-[C:/Users/omano/Desktop/apppi/app/HomePageWithCRUD.xaml]
+[C:/Users/vedad/Restoran/app/HomePageWithCRUD.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.HomePageWithCRUD.xaml
 build_metadata.AdditionalFiles.TargetPath = HomePageWithCRUD.xaml
 build_metadata.AdditionalFiles.RelativePath = HomePageWithCRUD.xaml
 
-[C:/Users/omano/Desktop/apppi/app/LoginPage.xaml]
+[C:/Users/vedad/Restoran/app/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = LoginPage.xaml
 
-[C:/Users/omano/Desktop/apppi/app/MainPage.xaml]
+[C:/Users/vedad/Restoran/app/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/omano/Desktop/apppi/app/OrderDetails.xaml]
+[C:/Users/vedad/Restoran/app/OrderDetails.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.OrderDetails.xaml
 build_metadata.AdditionalFiles.TargetPath = OrderDetails.xaml
 build_metadata.AdditionalFiles.RelativePath = OrderDetails.xaml
 
-[C:/Users/omano/Desktop/apppi/app/OrderPage.xaml]
+[C:/Users/vedad/Restoran/app/OrderPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.OrderPage.xaml
 build_metadata.AdditionalFiles.TargetPath = OrderPage.xaml
 build_metadata.AdditionalFiles.RelativePath = OrderPage.xaml
 
-[C:/Users/omano/Desktop/apppi/app/RegisterPage.xaml]
+[C:/Users/vedad/Restoran/app/RegisterPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.RegisterPage.xaml
 build_metadata.AdditionalFiles.TargetPath = RegisterPage.xaml
 build_metadata.AdditionalFiles.RelativePath = RegisterPage.xaml
 
-[C:/Users/omano/Desktop/apppi/app/Resources/Styles/Colors.xaml]
+[C:/Users/vedad/Restoran/app/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/omano/Desktop/apppi/app/Resources/Styles/Styles.xaml]
+[C:/Users/vedad/Restoran/app/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = app.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml

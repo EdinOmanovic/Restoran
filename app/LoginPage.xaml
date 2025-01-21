@@ -3,97 +3,98 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="app.LoginPage"
              Title="LoginPage"
-             BackgroundImageSource="restoran.jpg"
+             BackgroundColor="#151522"
              Padding="0"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Content>
-        <Grid Padding="20" VerticalOptions="End" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*">
-            <!-- Logo -->
-            
-
-            <!-- Title Frame -->
-            <Frame Grid.Row="1"
-                   BackgroundColor="DarkOliveGreen"
-                   CornerRadius="25"
-                   Padding="10"
-                   HasShadow="False"
-                   HeightRequest="70" 
-                   HorizontalOptions="FillAndExpand"
-                   VerticalOptions="Start">
-                <VerticalStackLayout>
-                    <Label Text="Prijavi se"
-                           FontSize="30"
+        <Grid Padding="25" RowSpacing="20">
+            <!-- Main Content -->
+            <VerticalStackLayout VerticalOptions="Center" Spacing="25">
+                <!-- Logo Section -->
+                <VerticalStackLayout Spacing="15" Margin="0,0,0,20">
+                    <Frame CornerRadius="60" 
+                           HeightRequest="120" 
+                           WidthRequest="120" 
+                           Padding="0"
+                           IsClippedToBounds="True"
+                           BackgroundColor="#252535"
+                           BorderColor="Transparent"
+                           HorizontalOptions="Center">
+                        <Image Source="hranaslikalogo.png"
+                               Aspect="AspectFill"/>
+                    </Frame>
+                    <Label Text="PTF"
+                           TextColor="White"
+                           FontSize="32"
                            FontAttributes="Bold"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand" 
-                           Margin="-10,5,0,0"/>
+                           HorizontalOptions="Center"/>
+                    <Label Text="RESTORAN"
+                           TextColor="#FF4B55"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    
                 </VerticalStackLayout>
-            </Frame>
 
-            <!-- Username Entry -->
-            <Frame Grid.Row="2"
-                   BackgroundColor="#E0E0E0"  
-                   CornerRadius="25"
-                   Padding="0"
-                   HeightRequest="50"
-                   Margin="0,10">
-                <Entry x:Name="UsernameEntry"
-                       Placeholder="Korisničko ime"
-                       FontSize="16"
-                       TextColor="#000000"
-                       BackgroundColor="White"  
-                       PlaceholderColor="#A0A0A0"
-                       HorizontalOptions="FillAndExpand"
-                       HeightRequest="50"/>
-            </Frame>
+                <!-- Login Section -->
+                <VerticalStackLayout Spacing="15">
+                    <!-- Username Entry -->
+                    <Frame BackgroundColor="#252535"  
+                           CornerRadius="25"
+                           Padding="15,0"
+                           HasShadow="False"
+                           HeightRequest="50"
+                           BorderColor="Transparent">
+                        <Entry x:Name="UsernameEntry"
+                               Placeholder="Korisničko ime"
+                               FontSize="16"
+                               TextColor="White"
+                               BackgroundColor="Transparent"  
+                               PlaceholderColor="#666676"/>
+                    </Frame>
 
-            <!-- Password Entry -->
-            <Frame Grid.Row="3"
-                   BackgroundColor="#E0E0E0"  
-                   CornerRadius="25"
-                   Padding="0"
-                   HeightRequest="50"
-                   Margin="0,10">
-                <Entry x:Name="PasswordEntry"
-                       Placeholder="Lozinka"
-                       FontSize="16"
-                       TextColor="#000000"
-                       BackgroundColor="white"  
-                       IsPassword="True"
-                       PlaceholderColor="#A0A0A0"
-                       HorizontalOptions="FillAndExpand"
-                       HeightRequest="50"/>
-            </Frame>
+                    <!-- Password Entry -->
+                    <Frame BackgroundColor="#252535"  
+                           CornerRadius="25"
+                           Padding="15,0"
+                           HasShadow="False"
+                           HeightRequest="50"
+                           BorderColor="Transparent">
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Lozinka"
+                               FontSize="16"
+                               TextColor="White"
+                               BackgroundColor="Transparent"  
+                               IsPassword="True"
+                               PlaceholderColor="#666676"/>
+                    </Frame>
 
-            <!-- Registration Link -->
-            <HorizontalStackLayout Grid.Row="4" HorizontalOptions="Center" Spacing="5">
-                <Label Text="Ako nemas profil, " 
-                       FontSize="14" 
-                       TextColor="Black" />
-                <Label Text="REGISTRUJ SE" 
-                       FontSize="14" 
-                       TextColor="DimGrey" 
-                       FontAttributes="Bold">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnRegisterTapped" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </HorizontalStackLayout>
+                    <!-- Action Buttons -->
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="15" Margin="0,10">
+                        <Button Grid.Column="0"
+                                Text="Prijavi se"
+                                FontSize="16"
+                                BackgroundColor="#FF4B55"
+                                TextColor="White"
+                                HeightRequest="50"
+                                CornerRadius="25"
+                                Clicked="Button_Clicked"/>
 
-            <!-- Spacer to push the button to the bottom -->
-            <BoxView Grid.Row="5" HeightRequest="0" />
-
-            <!-- Login Button -->
-            <Button Grid.Row="6"
-                    Text="Prijavi se"
-                    FontSize="16"
-                    BackgroundColor="DarkOliveGreen"
-                    TextColor="White"
-                    HeightRequest="50"
-                    HorizontalOptions="FillAndExpand"
-                    Margin="0,20"
-                    Clicked="Button_Clicked"/>
+                        <Button Grid.Column="1"
+                                Text="Registruj se"
+                                FontSize="16"
+                                BackgroundColor="#252535"
+                                TextColor="White"
+                                HeightRequest="50"
+                                CornerRadius="25">
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRegisterTapped"/>
+                            </Button.GestureRecognizers>
+                        </Button>
+                    </Grid>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

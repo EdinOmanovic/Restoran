@@ -3,81 +3,156 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="app.DailySummaryPage"
              Title="Dnevni Pregled"
-             BackgroundImageSource="back.jpg">
-    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
-        <!-- Zaglavlje -->
+             BackgroundColor="#121212">
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <!-- Header Section -->
         <Frame Grid.Row="0" 
-               BackgroundColor="#D18588" 
+               BackgroundColor="#1E1E1E" 
                Padding="20" 
                Margin="0,0,0,20"
-               CornerRadius="15">
-            <VerticalStackLayout Spacing="10">
+               CornerRadius="15"
+               BorderColor="Transparent">
+            <VerticalStackLayout Spacing="15">
                 <Label Text="Pregled Dnevnih Narudžbi" 
                        FontSize="28" 
                        FontAttributes="Bold" 
                        TextColor="White"
                        HorizontalOptions="Center"/>
+
                 <Label x:Name="dateLabelSummary"
                        FontSize="20"
-                       TextColor="White"
+                       TextColor="#FF4B55"
                        HorizontalOptions="Center"/>
+
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
                     <Button Text="Prethodni Dan" 
                             Clicked="OnPreviousDayClicked"
-                            BackgroundColor="White"
-                            TextColor="#D18588"/>
+                            BackgroundColor="#2D2D2D"
+                            TextColor="#FF4B55"
+                            CornerRadius="25"
+                            HeightRequest="40"
+                            WidthRequest="120"/>
+
                     <Button Text="Sljedeći Dan" 
                             Clicked="OnNextDayClicked"
-                            BackgroundColor="White"
-                            TextColor="#D18588"/>
+                            BackgroundColor="#FF4B55"
+                            TextColor="White"
+                            CornerRadius="25"
+                            HeightRequest="40"
+                            WidthRequest="120"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
         </Frame>
 
-        <!-- Sadržaj Pregleda -->
+        <!-- Content Section -->
         <ScrollView Grid.Row="1">
-            <VerticalStackLayout Spacing="15">
-                <!-- Ukupna Statistika -->
-                <Frame BackgroundColor="White" 
+            <VerticalStackLayout Spacing="20">
+                <!-- Statistics Cards -->
+                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="15">
+                    <!-- Total Orders Card -->
+                    <Frame BackgroundColor="#1E1E1E" 
+                           Padding="15"
+                           CornerRadius="15"
+                           BorderColor="Transparent">
+                        <VerticalStackLayout>
+                            <Label Text="Ukupno Narudžbi" 
+                                   TextColor="#666666"
+                                   FontSize="14"/>
+                            <Label x:Name="totalOrdersLabelSummary" 
+                                   TextColor="White"
+                                   FontSize="24"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Total Revenue Card -->
+                    <Frame Grid.Column="1"
+                           BackgroundColor="#1E1E1E" 
+                           Padding="15"
+                           CornerRadius="15"
+                           BorderColor="Transparent">
+                        <VerticalStackLayout>
+                            <Label Text="Ukupan Prihod" 
+                                   TextColor="#666666"
+                                   FontSize="14"/>
+                            <Label x:Name="totalRevenueLabelSummary" 
+                                   TextColor="#FF4B55"
+                                   FontSize="24"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Average Order Card -->
+                    <Frame Grid.Column="2"
+                           BackgroundColor="#1E1E1E" 
+                           Padding="15"
+                           CornerRadius="15"
+                           BorderColor="Transparent">
+                        <VerticalStackLayout>
+                            <Label Text="Prosječna Narudžba" 
+                                   TextColor="#666666"
+                                   FontSize="14"/>
+                            <Label x:Name="averageOrderLabelSummary" 
+                                   TextColor="White"
+                                   FontSize="24"
+                                   FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+
+                <!-- Orders List -->
+                <Frame BackgroundColor="#1E1E1E" 
                        Padding="20"
                        CornerRadius="15"
-                       BorderColor="#D18588">
-                    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" RowSpacing="15">
-                        <Label Text="Ukupno Narudžbi:" Grid.Column="0" Grid.Row="0"/>
-                        <Label x:Name="totalOrdersLabelSummary" Grid.Column="1" Grid.Row="0"/>
-
-                        <Label Text="Ukupan Prihod:" Grid.Column="0" Grid.Row="1"/>
-                        <Label x:Name="totalRevenueLabelSummary" Grid.Column="1" Grid.Row="1"/>
-
-                        <Label Text="Prosječna Vrijednost Narudžbe:" Grid.Column="0" Grid.Row="2"/>
-                        <Label x:Name="averageOrderLabelSummary" Grid.Column="1" Grid.Row="2"/>
-                    </Grid>
-                </Frame>
-
-                <!-- Lista Narudžbi -->
-                <Frame BackgroundColor="White" 
-                       Padding="20"
-                       CornerRadius="15"
-                       BorderColor="#D18588">
+                       BorderColor="Transparent">
                     <VerticalStackLayout Spacing="15">
                         <Label Text="Lista Narudžbi" 
                                FontSize="20" 
                                FontAttributes="Bold"
-                               TextColor="#D18588"/>
+                               TextColor="White"/>
 
                         <CollectionView x:Name="ordersCollectionViewSummary"
                                       EmptyView="Nema narudžbi za ovaj dan">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Frame Margin="0,5" BorderColor="#D18588" Padding="10">
-                                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+                                    <Frame Margin="0,5" 
+                                           BackgroundColor="#2D2D2D" 
+                                           BorderColor="Transparent"
+                                           CornerRadius="10"
+                                           Padding="15">
+                                        <Grid RowDefinitions="Auto,Auto" 
+                                              ColumnDefinitions="Auto,*,Auto" 
+                                              RowSpacing="8">
+                                            <!-- Table Icon -->
+                                            <Frame Grid.RowSpan="2"
+                                                   BackgroundColor="#1E1E1E"
+                                                   CornerRadius="10"
+                                                   HeightRequest="40"
+                                                   WidthRequest="40"
+                                                   Padding="8">
+                                                <Image Source="table_icon.png"
+                                                       Aspect="AspectFit"/>
+                                            </Frame>
+
+                                            <!-- Order Details -->
                                             <Label Text="{Binding TableNumber, StringFormat='Sto {0}'}"
-                                                   FontAttributes="Bold"/>
+                                                   TextColor="White"
+                                                   FontAttributes="Bold"
+                                                   Grid.Column="1"
+                                                   Margin="10,0,0,0"/>
+
                                             <Label Text="{Binding OrderTime, StringFormat='{0:HH:mm}'}"
-                                                   Grid.Column="1"/>
-                                            <Label Text="{Binding TotalAmount, StringFormat='{0:C}'}"
+                                                   TextColor="#666666"
                                                    Grid.Row="1"
-                                                   Grid.Column="1"/>
+                                                   Grid.Column="1"
+                                                   Margin="10,0,0,0"/>
+
+                                            <Label Text="{Binding TotalAmount, StringFormat='{0:C}'}"
+                                                   TextColor="#FF4B55"
+                                                   FontAttributes="Bold"
+                                                   Grid.Column="2"
+                                                   Grid.RowSpan="2"
+                                                   VerticalOptions="Center"/>
                                         </Grid>
                                     </Frame>
                                 </DataTemplate>
